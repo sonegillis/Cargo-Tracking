@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block content %}
+<!-- MAIN TITLE -->
+		<div class="main-title" style="background-image: url('{% static 'img/1.jpeg' %}')">
+			<div class="container">
+				<h1 class="main-title__primary">Logistic Service</h1>
+			</div>
+		</div><!-- /.main-title -->
+
+		<!-- BREADCRUMBS -->
+		<div class="breadcrumbs">
+			<div class="container">
+				<span>
+					<a class="home" href="{% url 'home' %}" title="Go to CargoPress." rel="v:url">CargoPress</a>
+				</span>
+				<span>
+					<a class="post post-page" href="{% url 'services' %}" title="Go to Services." rel="v:url">Services</a>
+				</span>
+				<span>
+					<span>Logistic Service</span>
+				</span>
+			</div>
+		</div><!-- /.breadcrumbs -->
+
+		<div class="container">
+
+			<div class="row">
+
+				<main class="col-xs-12 col-md-9 col-md-push-3">
+
+					<div class="row margin-bottom-30">
+
+						<div class="col-sm-6">
+
+							<p>
+								We provide logistic services in the nation, whether it is freight transportation, supply chain solutions, warehousing and distribution, customer resource area services, customs, security and insurance, temperature controlled logistics, industry sector solutions, brokerage, or lead logistic based solutions. Our company has through years of experience in this industry has been able to create a network of associates across the length and breadth of country, with our own logistic centers spread throughout the country, which helps us to provide safe, reliable, economical and customized logistic solutions to our clients and partners.
+							</p>
+
+							<p>
+								Our logistic teams consist of hundreds of employees, who starting from the pre-loading of cargos to post-delivery, takes care of the process of logistic transport as well as warehousing and distribution on your behalf. We are authorized, insured and licensed logistic service provider, who has over the years not only gained a credible market reputation, but has also been able to win the hearts of hundreds of our clients, both national and international. It is a mutually benefitting logistic service we aim to provide to our clients, which is what has helped us become one of the most reliable logistic service providers in the nation.
+							</p>
+
+						</div><!-- /.col -->
+
+						<div class="col-sm-6">
+
+							<p>
+								<img alt="placeholder" src="{% static 'img/8.jpg' %}" class="alignnone">
+							</p>
+
+							<p>
+								<img alt="placeholder" src="{% static 'img/slider1.jpg' %}" class="alignnone">
+							</p>
+
+						</div><!-- /.col -->
+
+					</div><!-- /.row -->
+
+				</main><!-- /.col -->
+
+				<div class="col-xs-12 col-md-3 col-md-pull-9">
+
+					<div class="sidebar widget_nav_menu">
+            <ul class="menu" id="menu-services-menu">
+							<li>
+								<a href="{% url 'services' %}">All Services</a>
+							</li>
+							<li>
+								<a href="{% url 'services_ground_transport' %}">Ground Transport</a>
+							</li>
+							<li>
+								<a href="{% url 'services_cargo' %}">Cargo</a>
+							</li>
+							<li>
+								<a href="{% url 'services_ware_housing' %}">Warehousing</a>
+							</li>
+							<li class="current-menu-item">
+								<a href="{% url 'services_logistic_service' %}">Logistic Service</a>
+							</li>
+							<li>
+								<a href="{% url 'services_truck_service' %}">Trucking Service</a>
+							</li>
+							<li>
+								<a href="{% url 'services_storage' %}">Storage</a>
+							</li>
+						</ul>
+					</div><!-- /.sidebar -->
+
+				</div><!-- /.col -->
+
+			</div><!-- /.row -->
+
+		</div><!-- /.container -->
+{% endblock %}

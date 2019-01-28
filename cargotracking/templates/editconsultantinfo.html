@@ -1,0 +1,234 @@
+<!doctype html>
+{% load i18n %}
+<html lang="en">
+  <head>
+		<style>
+		.searchdiv {
+		    position: absolute;
+		   	top:100%;
+		    z-index: 10;
+		}
+
+		p.background:hover {
+			background-color: #FF6600;
+		}
+		</style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% include 'snippets/bootstrap.html' %}
+    {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/stylesheethome.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <script type="text/javascript" src={% static 'js/bootstrap.js' %}></script>
+    <script type="text/javascript" src={% static 'js/jquery-3.3.1.js' %}></script>
+  	<script type="text/javascript" src={% static 'js/editconsultant.js' %}></script>
+	</head>
+
+<body>
+
+  <div id="header">
+     <h4>
+       <pre style="background-color: #5c755e; float: right; border: 0px"> <a href="/administration/home/" style="color: #ffffff;">{% trans 'Home' %}/</a><a href="/administration/manage/consultants/" style="color: #ffffff;">{% trans 'Manage Consultant' %}</a><i style="color:#ffffff">{% trans 'Welcome' %},</i><b style="color:#90cead">{{full_name}}</b> <a href="/logout/admin/"  style="color: #ffffff;">{% trans 'Logout' %}</a></pre>
+     </h4>
+    <div style="float: left">
+       <span title="English"><a lang="en" onclick="changeLanguage('en')" style="color:#FF9999">English</a></span>
+       <span title="Français"><a lang="fr" onclick="changeLanguage('fr')" style="color: #99CCFF">Français</a></span>
+    </div>
+    <h2> {% trans 'Edit Consultant Profile' %}</h2>
+
+   </div>
+<div id="editdiv" class="container"style="margin-top:50px">
+  <div id="employee_id" style="display:None">{{employee_id}}</div>
+  <div id="edittable">
+
+      <form class="form-horizontal" action="">
+        <fieldset>
+        <legend><h2 style="text-align:center"><b>{% trans 'Edit Consultant' %}</b></h2></legend>
+        <div class="well">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="name">{% trans 'First Names' %}:</label>
+          <div class="col-sm-10">
+          <input id="first_name" type="text" class="form-control" value="{{ first_name }}" name="name">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="name">{% trans 'Last Names' %}:</label>
+          <div class="col-sm-10">
+          <input id="last_name" type="text" class="form-control" value="{{ last_name }}" name="patient">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="name">{% trans 'Address' %}:</label>
+          <div class="col-sm-10">
+          <input id="address" type="text" class="form-control" value="{{ address }}" name="address">
+          </div>
+        </div>
+
+        <!--<div class="form-group">
+          <label class="control-label col-sm-2" for="name">E-mail:</label>
+          <div class="col-sm-10">
+          <input id="edit_email" type="email" class="form-control" value="{{ email }}" name="email">
+          </div>
+        </div>-->
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="name">{% trans 'ID Number' %}:</label>
+          <div class="col-sm-10">
+          <input id="edit_employee_id" type="number" class="form-control" value="{{ employee_id }}" name="id" disabled>
+          </div>
+        </div>
+        <div class="row">
+          <label class="control-label col-sm-2" for="name">{% trans 'Date of Birth' %}:</label>
+          <div class="col-sm-1" style="margin-top:6px">Day:</div>
+          <div class="col-sm-2" style="padding-right:50px">
+          <input id="b_day" type="number" class="form-control" value="{{ b_day }}" name="day">
+          </div>
+          <div class="col-sm-1" style="margin-top:6px;padding-left:45px">{% trans 'Month' %}:</div>
+          <div class="col-sm-2">
+          <select id="b_month" class="form-control" name="month">
+            <option value="January">{% trans 'January' %}</option>
+            <option value="February">{% trans 'February' %}</option>
+            <option value="March">{% trans 'March' %}</option>
+            <option value="April">{% trans 'April' %}</option>
+            <option value="May">{% trans 'May' %}</option>
+            <option value="June">{% trans 'June' %}</option>
+            <option value="July">{% trans 'July' %}</option>
+            <option value="August">{% trans 'August' %}</option>
+            <option value="September">{% trans 'September' %}</option>
+            <option value="October">{% trans 'October' %}</option>
+            <option value="November">{% trans 'November' %}</option>
+            <option value="December">{% trans 'December' %}</option>
+          </select>
+          </div>
+          <div class="col-sm-1" style="margin-top:6px;padding-left:55px" >{% trans 'Year' %}:</div>
+          <div class="col-sm-2">
+          <input id="b_year" type="number" class="form-control" value="{{ b_year }}" name="year">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="name">{% trans 'Gender' %}:</label>
+          <div class = "col-sm-10" value="male" style="padding-left:14px" >
+            <label class="radio-inline">
+              <input type="radio" name="sex" value="m">{% trans 'male' %}
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="sex" value="f">{% trans 'female' %}
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="name">{% trans 'Country' %}:</label>
+          <div class="col-sm-4" >
+          <input id="country" type="text" class="form-control" value="{{ country }}" name="id">
+          </div>
+          <div class="col-sm-2" style="margin-top:6px;padding-left:55px">{% trans 'Phone' %}:</div>
+          <div class="col-sm-2">
+          <input id="tel1" type="tel" class="form-control" value="{{ tel1 }}" name="tel">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="name">{% trans 'Profession' %}:</label>
+          <div class="col-sm-4">
+          <input id="proffession" type="text" class="form-control" value="{{ proffession }}" name="profession">
+          </div>
+          <div class="col-sm-2" style="margin-top:6px;padding-left:72px">
+          marital status:
+          </div>
+          <div class="col-sm-2">
+          <select id="marital_status" type="text" class="form-control" name="maritalStatus">
+            <option value="single">single</option>
+            <option value="married">married</option>
+            <option value="other">other</option>
+          </select>
+          </div>
+          <form>
+          <input id="is_active" type="checkbox" name="job_status">{% trans 'Available' %}
+
+          </form>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="address">{% trans 'Religion' %}:</label>
+          <div class="col-sm-10">
+          <input id="religion" type="text" class="form-control" value="{{ religion }}" name="religion">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button id="deleteconsultant" type="button" class="btn btn-danger">{% trans 'Delete' %}</button>
+            <button id="saveandcontinue" style="margin-left:20%" type="button" class="btn btn-primary">{% trans 'Save and continue' %}</button>
+          </div>
+          <br>
+          <hr>
+          <br>
+          <button id="changelogindetails" type="button" class="btn btn-primary col-sm-offset-2">{% trans 'CHANGE LOGIN DETAIL' %}</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+</div> <!--closing the editconsultant-->
+</div>
+<div id="confirmdeletediv" style="background-color:#a8c4c2; margin-left:30%; width:40%" class="well">
+  <h5 class="text-center">Are you want to delete <b>{{ first_name }} {{ last_name }}<i>(Consultant)</i></b> from the database</h5>
+  <h5 class="text-center">{% trans 'This information can not be retrieved if deleted' %}</h5>
+  <div class="row text-center">
+      {% csrf_token %}
+      <button id="confirmdelete" type="button" class="btn btn-danger float-left">{% trans 'YES' %}</button>
+      <button style="margin-left:10%" id="dontconfirmdelete" type="button" class="btn btn-info float-right">{% trans 'NO' %}</button>
+  </div>
+</div>
+
+<div id="confirmlogindetail" style="margin-left:30%; width:40%" class="well">
+  <div class="text-center" style="margin-bottom:5%">
+    <h5><b>CHANGE {{first_name}} {{last_name}}'s PASSWORD<b></h5>
+  </div>
+  <div id="error" class="text-center" style="color:red" class="well">
+
+  </div>
+  {% csrf_token %}
+  <div class="row form-group" style="margin-left:15%">
+    <label class="control-label col-sm-2" for="username">{% trans 'Username' %}: </label>
+    <div class="col-sm-6">
+      <input id="username" class="form-control" name="username" value="{{ username }}" disabled>
+    </div>
+  </div>
+  <div class="row form-group" style="margin-left:15%">
+    <label class="control-label col-sm-2" for="password1">{% trans 'Password' %}: </label>
+    <div class="col-sm-6">
+      <input id="password1" type="password" class="form-control" name="password1" value="">
+    </div>
+  </div>
+  <div class="row form-group" style="margin-left:15%">
+    <label class="control-label col-sm-2" for="password2">{% trans 'Confirm Password' %}: </label>
+    <div class="col-sm-6">
+      <input id="password2" type="password" class="form-control" value="">
+    </div>
+  </div>
+  <button id="changeuserpassword" class="btn btn-info" style="margin-left:40%">{% trans 'CHANGE' %}</button>
+</div>
+</div>
+<!--defining the footer for VEhHealth-->
+	<div class="panel-footer">&copy {% trans 'Powered by VEhSEh' %}</div>
+  <script type="text/javascript">
+    $("#b_month").val("{{b_month}}");
+    $("#marital_status").val("{{marital_status}}");
+    if("{{is_active}}"=="True"){
+      $("input:checkbox[name=job_status]:nth(0)").attr('checked', true);
+    }
+    if("{{gender}}"=="m"){
+      $("input:radio[name=sex]:nth(0)").attr('checked', true);
+    }
+    else{
+      $("input:radio[name=sex]:nth(1)").attr('checked', true);
+    }
+    $('[data-toggle="tooltip"]').tooltip();
+  </script>
+</body>
+</html>

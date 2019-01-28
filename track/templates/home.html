@@ -1,0 +1,726 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block content %}
+		<!-- JUMBOTRON -->
+		<div class="jumbotron jumbotron--with-captions">
+
+			<div data-interval="5000" data-ride="carousel" id="headerCarousel" class="carousel slide">
+
+				<div class="carousel-inner">
+
+					<div class="item">
+  						<img style="max-height:450px" alt="UNBEATABLE TRUCKING AND TRANSPORT SERVICES" sizes="100vw" srcset="{% static 'img/bg-2-1.jpeg' %} 1920w, images/placeholders/425x200.png 425w" src="{% static 'img/bg-2-1.jpeg' %}">
+						<div class="container">
+							<div class="jumbotron-content">
+								<div class="jumbotron-content__title">
+									<h1>UNBEATABLE TRUCKING AND TRANSPORT SERVICES</h1>
+								</div>
+								<div class="jumbotron-content__description">
+									<p class="p1">
+										<span class="s1">Starting from loading to unloading and maintaining the highest standards in terms of safety while in transit, we take nothing to chance.</span>
+									</p>
+									<p>
+										<a target="_self" href="{% url 'services' %}" class="btn btn-primary">OUR SERVICES</a> &nbsp;<a target="_self" href="contact.html" class="btn btn-secondary">GET IN TOUCH</a>
+									</p>
+									<div class="w69b-screencastify-mouse"></div>
+								</div>
+							</div>
+						</div>
+					</div><!-- /.item -->
+
+					<div class="item">
+						<img style="max-height:450px" alt="CRANE TO TRAIN, WE DO EVERYTHING" sizes="100vw" srcset="{% static 'img/bg-4.jpeg' %} 1920w, {% static 'img/bg-4.jpeg' %} 425w" src="{% static 'img/bg-4.jpeg' %}">
+						<div class="container">
+							<div class="jumbotron-content">
+								<div class="jumbotron-content__title">
+									<h1>CRANE TO TRAIN, WE DO EVERYTHING</h1>
+								</div>
+								<div class="jumbotron-content__description">
+									<p class="p1">
+										<span class="s1">Starting from loading to unloading and maintaining the highest standards in terms of safety while in transit, we take nothing to chance.</span>
+									</p>
+									<a target="_self" href="about.html" class="btn btn-primary">READ MORE</a>
+									<div class="w69b-screencastify-mouse"></div>
+								</div>
+							</div>
+						</div>
+					</div><!-- /.item -->
+					<div class="item">
+						<img style="max-height:450px" alt="CRANE TO TRAIN, WE DO EVERYTHING" sizes="100vw" srcset="{% static 'img/bg-3.jpeg' %} 1920w, {% static 'img/bg-3.jpeg' %} 425w" src="{% static 'img/bg-3.jpeg' %}">
+						<div class="container">
+							<div class="jumbotron-content">
+								<div class="jumbotron-content__title">
+									<h1>SEA TRANSPORT</h1>
+								</div>
+								<div class="jumbotron-content__description">
+									<p class="p1">
+										<span class="s1">Starting from loading to unloading and maintaining the highest standards in terms of safety while in transit, we take nothing to chance.</span>
+									</p>
+									<a target="_self" href="about.html" class="btn btn-primary">READ MORE</a>
+									<div class="w69b-screencastify-mouse"></div>
+								</div>
+							</div>
+						</div>
+					</div><!-- /.item -->
+					<div class="item active">
+						<img style="max-height:450px" alt="GROUND OR AIR, THERE IS NO STOPPING FOR US" sizes="100vw" srcset="{% static 'img/air-freight.jpeg' %} 1920w, {% static 'img/placeholders/425x200.png' %} 425w" src="{% static 'img/air-freight.jpeg' %}">
+						<div class="container">
+							<div class="jumbotron-content">
+								<div class="jumbotron-content__title">
+									<h1>GROUND OR AIR, THERE IS NO STOPPING FOR US</h1>
+								</div>
+								<div class="jumbotron-content__description">
+									<p class="p1">
+										<span class="s1">Starting from loading to unloading and maintaining the highest standards in terms of safety while in transit, we take nothing to chance.</span>
+									</p>
+									<a target="_self" href="about.html" class="btn btn-primary">MORE DETAILS</a>
+									<div class="w69b-screencastify-mouse"></div>
+								</div>
+							</div>
+						</div>
+					</div><!-- /.item -->
+
+				</div><!-- /.carousel-inner -->
+
+				<div class="container">
+
+					<a data-slide="prev" role="button" href="#headerCarousel" class="left jumbotron__control">
+						<i class="fa  fa-caret-left"></i>
+					</a>
+					<a data-slide="next" role="button" href="#headerCarousel" class="right jumbotron__control">
+						<i class="fa  fa-caret-right"></i>
+					</a>
+				</div><!-- /.container -->
+
+			</div><!-- /.carousel -->
+
+		</div><!-- /.jumbotron -->
+
+		<!-- OUR SERVICES -->
+		<div class="container" role="main">
+
+			<div class="row jumbotron-overlap first">
+
+				<div class="col-sm-3">
+
+					<div class="featured-widget">
+
+						<h3 class="widget-title">HELLO THERE AND WELCOME</h3>
+
+						<p>
+							Logistics Transport care offers a complete range of sea freight services worldwide, with options ranging from smaller consolidated LCL (Less than Container Load) cargo to large FCL (Full Container Load) cargo, also we handle all kinds of special containers, such as Open Top Container, Flat Rack Container, Reefer Container, Hanging Garment Container and Tank Container.
+						</p>
+
+						<p>
+							<a class="read-more" href="#">MORE ABOUT US</a>
+						</p>
+
+					</div>
+
+				</div><!-- /.col -->
+
+				<div class="col-sm-3">
+
+					<a href="cargo.html">
+						<img alt="Cargo" class="post-image" sizes="(min-width: 781px) 360px, calc(100vw - 30px)" srcset="{% static 'img/smallpic1.jpeg' %} 360w, {% static 'img/placeholders/848x480.png' %} 848w" src="{% static 'img/smallpic1.jpeg' %}">
+					</a>
+
+					<h5 class="page-box__title"><a href="cargo.html">CARGO</a></h5>
+
+					<p style="font-style: italic">
+						Team of cargo&nbsp;experts are always available to help you with any queries you might have, or if you want to consult in length your logistic requirements. We would study your requirements and provide you with a quote that would not only suit your …
+					</p>
+
+					<p style="font-style: italic">
+						<a class="read-more" href="cargo.html">Read more</a>
+					</p>
+
+				</div><!-- /.col -->
+
+				<div class="col-sm-3">
+
+					<a href="logistic_service.html">
+						<img alt="Logistic Service" class="post-image" sizes="(min-width: 781px) 360px, calc(100vw - 30px)" srcset="{% static 'img/smallpic2.jpg' %} 360w, {% static 'img/placeholders/848x480.png' %} 848w" src="{% static 'img/smallpic2.jpg' %}">
+					</a>
+
+					<h5 class="page-box__title"><a href="logistic_service.html">LOGISTIC SERVICE</a></h5>
+
+					<p style="font-style: italic">
+						We provide logistic services in the nation, whether it is freight transportation, supply chain solutions, warehousing and distribution, customer resource area services, customs, security and insurance, temperature controlled logistics, industry …
+					</p>
+
+					<p style="font-style: italic">
+						<a class="read-more" href="https://demo.proteusthemes.com/cargopress/services/logistic-service/">Read more</a>
+					</p>
+
+				</div><!-- /.col -->
+
+				<div class="col-sm-3">
+
+					<a href="storage.html">
+						<img alt="Storage" class="post-image" sizes="(min-width: 781px) 360px, calc(100vw - 30px)" srcset="{% static 'img/s3.jpg' %} 360w, {% static 'img/placeholders/848x480.png' %} 848w" src="{% static 'img/s3.jpg' %}">
+					</a>
+
+					<h5 class="page-box__title"><a href="storage.html">STORAGE</a></h5>
+
+					<p style="font-style: italic">
+						We take pride in catering to a broad range of clientele throughout the country with our warehousing services, which is comprehensive, reliable and flexible &ndash; qualities that are essential to help businesses in this market. Our experienced experts …
+					</p>
+
+					<p style="font-style: italic">
+						<a class="read-more" href="storage.html">Read more</a>
+					</p>
+
+				</div><!-- /.col -->
+
+			</div><!-- /.row -->
+
+			<div class="row">
+
+				<div class="col-sm-12">
+
+					<h3 class="widget-title big lined">
+						<span>OUR SERVICES</span>
+					</h3>
+
+				</div><!-- /.col -->
+
+			</div><!-- /.row -->
+
+			<div class="row">
+
+				<div class="col-sm-4">
+
+					<div class="widget_pw_icon_box margin-bottom-30">
+						<a target="_self" href="#" class="icon-box">
+							<i class="fa fa-dropbox"></i>
+							<h4 class="icon-box__title">PACKAGING AND STORAGE</h4>
+							<span class="icon-box__subtitle">We can package and store your things.</span>
+						</a>
+					</div><!-- /.widget_pw_icon_box -->
+
+					<div class="widget_pw_icon_box margin-bottom-30">
+						<a target="_self" href="#" class="icon-box">
+							<i class="fa fa-archive"></i>
+							<h4 class="icon-box__title">WAREHOUSING</h4>
+							<span class="icon-box__subtitle">We have top notch security and loads of space. Store your stuff at our warehouse.</span>
+						</a>
+					</div><!-- /.widget_pw_icon_box -->
+
+				</div><!-- /.col -->
+
+				<div class="col-sm-4">
+
+					<div class="widget_pw_icon_box margin-bottom-30">
+						<a target="_self" href="#" class="icon-box">
+							<i class="fa fa-truck"></i>
+							<h4 class="icon-box__title">CARGO</h4>
+							<span class="icon-box__subtitle">Let us transport your things from point A to point B fast and securely. </span>
+						</a>
+					</div><!-- /.widget_pw_icon_box -->
+
+					<div class="widget widget_pw_icon_box margin-bottom-30">
+						<a target="_self" href="#" class="icon-box">
+							<i class="fa fa-home"></i>
+							<h4 class="icon-box__title">DOOR-TO-DOOR DELIVERY</h4>
+							<span class="icon-box__subtitle">Do you need something delivered? We are what you are looking for! </span>
+						</a>
+					</div><!-- /.widget_pw_icon_box -->
+
+				</div><!-- /.col -->
+
+				<div class="col-sm-4">
+
+					<div class="widget_pw_icon_box margin-bottom-30">
+						<a target="_self" href="#" class="icon-box">
+							<i class="fa fa-globe"></i>
+							<h4 class="icon-box__title">WORLDWIDE TRANSPORT</h4>
+							<span class="icon-box__subtitle">We can transport your things anywhere in the world. </span>
+						</a>
+					</div><!-- /.widget_pw_icon_box -->
+
+					<div class="widget_pw_icon_box margin-bottom-30">
+						<a target="_self" href="#" class="icon-box">
+							<i class="fa fa-road"></i>
+							<h4 class="icon-box__title">GROUND TRANSPORT</h4>
+							<span class="icon-box__subtitle">Transport your things with our super moving vans.</span>
+						</a>
+					</div><!-- /.widget_pw_icon_box -->
+
+				</div><!-- /.col -->
+
+			</div><!-- /.row -->
+
+		</div><!-- /.conainer -->
+
+		<!-- CTA -->
+		<div class="cta">
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-md-12">
+
+						<div class="call-to-action">
+							<div class="call-to-action__text">
+								Not sure which solution fits you business needs?
+							</div>
+							<div class="call-to-action__button">
+								<a target="_blank" href="contact.html" class="btn btn-info">CONTACT OUR SALES TEAM</a>
+							</div>
+						</div><!-- /.call-to-action -->
+
+					</div><!-- /.col -->
+
+				</div><!-- /.row -->
+
+			</div><!-- /.container -->
+
+		</div><!-- /.cta -->
+
+		<!-- NEWS -->
+		<div class="news">
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-sm-4 margin-bottom-30">
+
+						<div class="widget_pw_latest_news">
+							<a class="latest-news" href="article.html">
+								<div class="latest-news__date">
+									<div class="latest-news__date__month">May</div>
+									<div class="latest-news__date__day">6</div>
+								</div>
+								<img alt="Why choose our warehousing service?" class="wp-post-image" sizes="(min-width: 781px) 360px, calc(100vw - 30px)" srcset="{% static 'img/slider3.jpg' %} 360w, {% static 'img/placeholders/848x480.png' %} 848w" src="{% static 'img/slider3.jpg' %}">
+								<div class="latest-news__content">
+									<h4 class="latest-news__title">Why choose our warehousing service?</h4>
+									<div class="latest-news__author">By Sone Gillis</div>
+								</div>
+							</a>
+						</div><!-- /.widget_pw_latest_news -->
+
+					</div><!-- /.col -->
+
+					<div class="col-sm-4 margin-bottom-30">
+
+						<div class="widget_pw_latest_news">
+							<a class="latest-news" href="article.html">
+								<div class="latest-news__date">
+									<div class="latest-news__date__month">May</div>
+									<div class="latest-news__date__day">6</div>
+								</div>
+								<img alt="Top benefits of hiring our trucking service" class="wp-post-image" sizes="(min-width: 781px) 360px, calc(100vw - 30px)" srcset="{% static 'img/slider6.jpg' %} 360w, {% static 'img/placeholders/848x480.png' %} 848w" src="{% static 'img/slider6.jpg' %}">
+								<div class="latest-news__content">
+									<h4 class="latest-news__title">Top benefits of hiring our trucking service</h4>
+									<div class="latest-news__author">By Sone Gillis</div>
+								</div>
+							</a>
+						</div><!-- /.widget_pw_latest_news -->
+
+					</div><!-- /.col -->
+
+					<div class="col-sm-4 margin-bottom-30">
+
+						<div class="widget_pw_latest_news">
+							<a class="latest-news  latest-news--inline" href="https://demo.proteusthemes.com/cargopress/2015/05/06/logistic-service-providers-would-understand-your-business/">
+								<div class="latest-news__content">
+									<h4 class="latest-news__title">Logistic service providers would understand your business</h4>
+									<div class="latest-news__author">By Sone Gillis</div>
+								</div>
+							</a>
+							<a class="latest-news  latest-news--inline" href="https://demo.proteusthemes.com/cargopress/2015/05/06/our-trucking-service-ensures-you-best-quality-services-at-all-times/">
+								<div class="latest-news__content">
+									<h4 class="latest-news__title">Our trucking service ensures you best quality services at all times</h4>
+									<div class="latest-news__author">By Sone Gillis</div>
+								</div>
+							</a>
+							<a class="latest-news  latest-news--inline" href="https://demo.proteusthemes.com/cargopress/2015/05/06/we-are-experienced-and-expert-in-the-business-of-logistics/">
+								<div class="latest-news__content">
+									<h4 class="latest-news__title">We are experienced and expert in the business of logistics</h4>
+									<div class="latest-news__author">By Sone Gillis</div>
+								</div>
+							</a>
+							<a class="latest-news  latest-news--more-news" href="https://demo.proteusthemes.com/cargopress/news/">
+								More news
+							</a>
+						</div><!-- /.widget_pw_latest_news -->
+
+					</div><!-- /.col -->
+
+				</div><!-- /.row -->
+
+			</div><!-- /.container -->
+
+		</div><!-- /.news -->
+
+		<!-- VALUES -->
+		<div class="values margin-bottom-60">
+
+			<div class="container">
+
+				<div class="col-sm-8 col-sm-offset-2">
+
+					<h3>OUR CORE VALUES</h3>
+					<p class="text-center">
+						<span>WRITTEN BY VEhSEh</span>
+					</p>
+					<hr class="hr-quote">
+					<p class="text-center">
+						Logistics Transport Care offers a complete range of sea freight services worldwide, with options ranging from smaller consolidated LCL (Less than Container Load) cargo to large FCL (Full Container Load) cargo, also we handle all kinds of special containers, such as Open Top Container, Flat Rack Container, Reefer Container, Hanging Garment Container and Tank Container.
+
+We facilitate prompt reliable deliveries for all general, containerized, over-dimensional and bulk cargoes world wide.
+					</p>
+					<p class="text-center">
+						<img alt="signature" src="{% static 'img/signature.png' %}">
+					</p>
+
+				</div><!-- /.col -->
+
+			</div><!-- /.container -->
+
+		</div><!-- /.values -->
+
+		<!-- ABOUT / QUICK QUITE / GALLERY / FAQ -->
+		<div class="container">
+
+			<div class="row margin-bottom-60">
+
+				<div class="col-sm-6">
+
+					<h3 class="widget-title big lined">
+						<span>ABOUT US</span>
+					</h3>
+					<p>
+						Logistics Transport Care for more than a decade and with its high capability, wide network, professional experts, customer oriented approach, and distinctive reputation in the transportation industry, has become a leading provider of customer driven freight services in the region.
+
+					</p>
+					<p>
+						Logistics Transport Care was established in 2001 in United States to provide customized turnkey import and export services by land, rail, sea and air. We also provide brokerage service and warehousing/distribution.
+
+					</p>
+					<p>We work as an extension of our customers business team ensuring peace of mind shipments arrive as expected.</p>
+					<p>
+						<a href="about.html" class="read-more">READ MORE</a>
+					</p>
+
+				</div><!-- /.col -->
+
+				<div class="col-sm-6" id="quickQuoteForm_wrapper">
+
+					<div class="featured-widget">
+
+						<h3 class="widget-title">
+							REQUEST A QUICK QUOTE
+						</h3>
+
+						<p>
+						But i must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete count.
+						</p>
+
+						<form data-toggle="validator" method="post" action="" id="quickQuoteForm" class="aSubmit">
+							<div style="display:none"><input type="text" name="maximus" value=""></div>
+							<input type="hidden" name="subject" value="CargoPress: Quick Quote Request">
+							<div class="contact-form-small">
+								<div class="row">
+									<div class="col-xs-12  col-md-6">
+										<div class="form-group">
+											<input type="text" placeholder="First and Last Name *" aria-invalid="false" aria-required="true" size="40" value="" name="name" required>
+										</div>
+										<div class="form-group">
+											<input type="email" placeholder="E-mail address" aria-invalid="false" aria-required="true" size="40" value="" name="email" required>
+										</div>
+										<select aria-invalid="false" name="service">
+											<option value="Cargo">Cargo</option>
+											<option value="Ground Transport">Ground Transport</option>
+											<option value="Logistic Service">Logistic Service</option>
+											<option value="Storage">Storage</option>
+											<option value="Trucking Service">Trucking Service</option>
+											<option value="Warehousing">Warehousing</option>
+										</select>
+									</div>
+									<div class="col-xs-12  col-md-6">
+										<div class="form-group">
+											<input type="text" placeholder="Subject *" aria-invalid="false" aria-required="true" size="40" value="" name="subject" required>
+										</div>
+										<div class="form-group">
+											<textarea placeholder="Message *" aria-invalid="false" rows="10" cols="40" name="message" required></textarea>
+										</div>
+									</div>
+									<div class="col-xs-12  col-md-12">
+										<input type="submit" class="btn btn-primary pull-right" value="SEND">
+										<img class="ajax-loader" id="loader" src="images/ajax-loader.gif" alt="Sending ..." style="display:none;">
+									</div>
+								</div><!-- /.row -->
+								<div class="response success">Your message was sent; we'll be in touch shortly!</div>
+								<div class="response error">Unfortunately, we could not sent your message right now. Please try again.</div>
+							</div><!-- /.contact-form-small -->
+						</form>
+
+					</div><!-- /.featured-widget -->
+
+				</div><!-- /.col -->
+
+			</div><!-- /.row -->
+
+			<div class="row margin-bottom-60">
+
+				<div class="col-sm-6">
+
+					<div class="widget_black-studio-tinymce">
+
+						<h3 class="widget-title lined big">
+							<span>FLEET GALLERY</span>
+						</h3>
+
+						<div class="gallery gallery-columns-3 gallery-size-medium">
+							<figure class="gallery-item">
+								<a href="{% static 'img/smallpic1.jpeg' %}">
+									<img alt="placeholder" src="{% static 'img/smallpic1.jpg' %}">
+								</a>
+							</figure>
+							<figure class="gallery-item">
+								<a href="{% static 'img/s2.jpg' %}">
+									<img alt="placeholder" src="{% static 'img/s2.jpg' %}">
+								</a>
+							</figure>
+							<!-- <figure class="gallery-item">
+								<a href="images/s1.jpg">
+									<img alt="placeholder" src="images/s1.jpg">
+								</a>
+							</figure>
+							<figure class="gallery-item">
+								<a href="images/s4.jpg">
+									<img alt="placeholder" src="images/s4.jpg">
+								</a>
+							</figure>
+							<figure class="gallery-item">
+								<a href="images/s7.jpg">
+									<img alt="placeholder" src="images/s7.jpg">
+								</a>
+							</figure> -->
+							<figure class="gallery-item">
+								<a href="{% static 'img/smallpic2.jpg' %}">
+									<img alt="placeholder" src="{% static 'img/smallpic2.jpg' %}">
+								</a>
+							</figure>
+						</div><!-- /.gallery -->
+
+					</div><!-- /.widget_black-studio-tinymce -->
+
+				</div><!-- /.col -->
+
+				<div class="col-sm-6">
+
+					<h3 class="widget-title lined big">
+						<span>FAQ</span>
+					</h3>
+					<h4>
+						<a target="_blank" href="faq.html" class="dark-link">HOW LONG DOES IT TAKE TO DELIVER THE PACKAGE?</a>
+					</h4>
+					<hr>
+					<h4>
+						<a target="_blank" href="faq.html" class="dark-link">CAN I SHIP TO ANY COUNTRY IN THE WORLD?</a>
+					</h4>
+					<hr>
+					<h4>
+						<a target="_blank" href="faq.html" class="dark-link">WHAT ARE THE ADVANTAGES OF SHIPPING WITH Logistics Transport Care REPLACE WITH NAME OF SITE?</a>
+					</h4>
+					<hr>
+					<p>
+						<a href="faq.html" class="read-more">MORE QUESTIONS</a>
+					</p>
+
+				</div><!-- /.col -->
+
+			</div><!-- /.row -->
+
+		</div><!-- /.container -->
+
+		<!-- TESTIMONIALS -->
+		<div class="testimonials">
+
+			<div class="container">
+
+				<div class="row margin-bottom-60">
+
+					<div class="col-sm-12">
+
+						<div class="testimonial">
+
+							<h3 class="widget-title lined big">
+								<span>TESTIMONIALS</span>
+							</h3>
+
+							<div class="testimonial__carousel">
+								<a data-slide="prev" href="#testimonalCarousel" class="testimonial__carousel--left">
+									<i aria-hidden="true" class="fa fa-caret-left"></i>
+									<span role="button" class="sr-only">Next</span>
+								</a>
+								<a data-slide="next" href="#testimonalCarousel" class="testimonial__carousel--right">
+									<i aria-hidden="true" class="fa fa-caret-right"></i>
+									<span role="button" class="sr-only">Previous</span>
+								</a>
+							</div><!-- /.testimonial__carousel -->
+
+							<div data-interval="false" data-ride="carousel" class="carousel slide" id="testimonalCarousel">
+
+								<div role="listbox" class="carousel-inner">
+
+									<div class="item">
+										<div class="row">
+											<div class="col-xs-12  col-sm-6">
+												<blockquote>
+													<p class="testimonial__quote">
+														We highly appreciate the exceptional service received for the handling of an urgent shipment. Your representatives have a very helpful attitude and their attention to detail helped us to move our work smoothly without any delay. Keep up the good work and looking forward for the same attitude for future endeavors.
+													</p>
+													<cite class="testimonial__author">
+														Carolyn Ayala<span class="testimonial__author-description">, CEO</span>
+													</cite>
+												</blockquote>
+											</div>
+											<div class="col-xs-12  col-sm-6">
+												<blockquote>
+													<p class="testimonial__quote">
+														Special thanks to you and the team for carrying out the work with enthusiasm and professionalism. In the adverse situation with rains on, it was good to see the agility with which your people carried out the work.
+													</p>
+													<cite class="testimonial__author">
+														Ronnie Parker<span class="testimonial__author-description">, Manager</span>
+													</cite>
+												</blockquote>
+											</div>
+										</div>
+									</div><!-- /.item -->
+
+									<div class="item active">
+										<div class="row">
+											<div class="col-xs-12  col-sm-6">
+												<blockquote>
+													<p class="testimonial__quote">
+														We are delighted and appreciative with the assistance that you have extended to us with regards to customs related matters. Your professional and courteous attitude, expert knowledge, and patience in handling our specific issues are very important to our complete customer satisfaction.
+													</p>
+													<cite class="testimonial__author">
+														Kim Hiatt<span class="testimonial__author-description">, Director</span>
+													</cite>
+												</blockquote>
+											</div>
+											<div class="col-xs-12  col-sm-6">
+												<blockquote>
+													<p class="testimonial__quote">
+														Testimonial from Al-Futtaim Motors for the honesty of shuttle service driver Naseer Naz in returning a customer’s wallet found on the bus. “We would like to commend your driver for being honest.
+													</p>
+													<cite class="testimonial__author">
+														Michael Garza<span class="testimonial__author-description">, EMPLOYEE</span>
+													</cite>
+												</blockquote>
+											</div>
+										</div>
+									</div><!-- /.item -->
+
+								</div><!-- /.carousel-inner -->
+
+							</div><!-- /.carousel -->
+
+						</div><!-- /.testimonial -->
+
+					</div><!-- /.col -->
+
+				</div><!-- /.row -->
+
+			</div><!-- /.container -->
+
+		</div><!-- /.testimonials -->
+
+		<!-- MAP -->
+		<!-- <div class="map margin-bottom-60">
+
+			<div data-type="roadmap" data-zoom="7" data-markers='[{"id":"1","title":"CargoPress","address":"Kalmoesstraat 20, Apeldoorn","custompinimage":"images\/pin.png"}]' class="simple-map js-where-we-are"></div>
+
+		</div> -->
+		<!-- /.map -->
+
+		<!-- OUR PARTNERS -->
+		<div class="container">
+
+			<div class="row margin-bottom-60">
+
+				<div class="col-sm-12">
+
+					<div class="widget_text">
+
+						<h3 class="widget-title lined big">
+							<span>OUR PARTNERS</span>
+						</h3>
+						<style type="text/css">
+							.logo-panel>div>div>a>img{
+								height: 90px;
+							}
+						</style>
+						<div class="logo-panel">
+							<div class="row">
+                <div class="col-xs-12  col-sm-2">
+									<a href="#"><img alt="Client" src="{% static 'img/client/6.jpg' %}"></a>
+								</div>
+								<div class="col-xs-12  col-sm-2">
+									<a href="#"><img alt="Client" src="{% static 'img/client/5.jpg' %}"></a>
+								</div>
+								<div class="col-xs-12  col-sm-2">
+									<a href="#"><img alt="Client" src="{% static 'img/client/4.jpg' %}"></a>
+								</div>
+								<div class="col-xs-12  col-sm-2">
+									<a href="#"><img alt="Client" src="{% static 'img/client/3.jpg' %}"></a>
+								</div>
+								<div class="col-xs-12  col-sm-2">
+									<a href="#"><img alt="Client" src="{% static 'img/client/2.jpg' %}"></a>
+								</div>
+								<div class="col-xs-12  col-sm-2">
+									<a href="#"><img alt="Client" src="{% static 'img/client/1.jpg' %}"></a>
+								</div>
+							</div><!-- /.row -->
+						</div><!-- /.logo-panel -->
+
+					</div><!-- /.widget_text -->
+
+				</div><!-- /.col -->
+
+			</div><!-- /.row -->
+
+		</div><!-- /.container -->
+
+		<!-- COUNTERS -->
+		<div class="counters">
+
+			<div class="container">
+
+				 <div  class="widget_pw_number-counter panel-first-child panel-last-child">
+					 <div data-speed="1000" class="widget-number-counters">
+						 <div class="number-counter">
+							 <i class="number-counter__icon fa fa-building-o"></i>
+							 <div data-to="45" class="number-counter__number js-number">00</div>
+							 <div class="number-counter__title">Offices Worldwide</div>
+				 		 </div>
+				 		 <div class="number-counter">
+							 <i class="number-counter__icon fa fa-users"></i>
+				 	 		 <div data-to="127" class="number-counter__number js-number">00</div>
+				 	 		 <div class="number-counter__title">Hardworking People</div>
+				 		 </div>
+				 		 <div class="number-counter">
+							 <i class="number-counter__icon fa fa-globe"></i>
+					   		 <div data-to="72" class="number-counter__number js-number">00</div>
+				 	 		 <div class="number-counter__title">Countries Covered</div>
+				 		 </div>
+				 		 <div class="number-counter">
+							 <i class="number-counter__icon fa fa-users"></i>
+				 	   		 <div data-to="12" class="number-counter__number js-number">00</div>
+				 	   		 <div class="number-counter__title">Years of Experiences</div>
+						 </div>
+					 </div>
+				 </div>
+
+			</div><!-- /.container -->
+
+		</div><!-- /.counters -->
+
+{% endblock %}

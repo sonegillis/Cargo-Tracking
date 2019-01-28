@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% load static from staticfiles %}
+
+{% block content %}
+
+<!-- MAIN TITLE -->
+		<div class="main-title" style="background-image: url('{% static 'img/1.jpeg' %}')">
+			<div class="container">
+				<h1 class="main-title__primary">Ground Transport</h1>
+			</div>
+		</div><!-- /.main-title -->
+
+		<!-- BREADCRUMBS -->
+		<div class="breadcrumbs">
+			<div class="container">
+				<span>
+					<a class="home" href="{% url 'home' %}" title="Go to CargoPress." rel="v:url">Logistics Trasport Care</a>
+				</span>
+				<span>
+					<a class="post post-page" href="{% url 'services' %}" title="Go to Services." rel="v:url">Services</a>
+				</span>
+				<span>
+					<span>Ground Transport</span>
+				</span>
+			</div>
+		</div><!-- /.breadcrumbs -->
+
+		<div class="container">
+
+			<div class="row">
+
+				<main class="col-xs-12 col-md-9 col-md-push-3">
+
+					<div class="row margin-bottom-30">
+
+						<div class="col-sm-6">
+
+							<p>
+								Ground transport and freight forwarding services, along with other ancillary services, helps us to provide tailor made logistic solutions to our clients, which we design as per their requirements and business ecosystem to help cut their cost, delivery time, while focusing on end user satisfaction. It is a mutually benefitting logistic service we aim to provide to our clients, which is what has helped us become one of the most reliable logistic service providers in the nation.Our logistic and freight forwarding services, along with other ancillary services, helps us to provide tailor made logistic solutions to our clients, which we design as per their requirements and business ecosystem to help cut their cost, delivery time, while focusing on end user satisfaction. It is a mutually benefitting logistic service we aim to provide to our clients, which is what has helped us become one of the most reliable logistic service providers in the nation.
+							</p>
+
+							<p>
+								We ensure that our fleet of trucks are always well maintained, and have the best and the most updated fleet of trucks in service to ensure that it is capable of delivering high value, and oversized deliverables, efficiently and effectively, without causing any kind of loss, which is generally the case seen with many outsourced trucking service providers.
+							</p>
+
+						</div><!-- /.col -->
+
+						<div class="col-sm-6">
+
+							<p>
+								<img alt="placeholder" src="{% static 'img/4.jpg' %}" class="alignnone">
+							</p>
+
+							<p>
+								<img alt="placeholder" src="{% static 'img/5.jpg' %}" class="alignnone">
+							</p>
+
+						</div><!-- /.col -->
+
+					</div><!-- /.row -->
+
+				</main><!-- /.col -->
+
+				<div class="col-xs-12 col-md-3 col-md-pull-9">
+
+					<div class="sidebar widget_nav_menu">
+						<ul class="menu" id="menu-services-menu">
+							<li>
+								<a href="{% url 'services' %}">All Services</a>
+							</li>
+							<li class="current-menu-item">
+								<a href="{% url 'services_ground_transport' %}">Ground Transport</a>
+							</li>
+							<li>
+								<a href="{% url 'services_cargo' %}">Cargo</a>
+							</li>
+							<li>
+								<a href="{% url 'services_ware_housing' %}">Warehousing</a>
+							</li>
+							<li>
+								<a href="{% url 'services_logistic_service' %}">Logistic Service</a>
+							</li>
+							<li>
+								<a href="{% url 'services_truck_service' %}">Trucking Service</a>
+							</li>
+							<li>
+								<a href="{% url 'services_storage' %}">Storage</a>
+							</li>
+						</ul>
+					</div><!-- /.sidebar -->
+
+				</div><!-- /.col -->
+
+			</div><!-- /.row -->
+
+		</div><!-- /.container -->
+  {% endblock %}

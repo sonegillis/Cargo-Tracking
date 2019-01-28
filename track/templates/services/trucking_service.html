@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block content %}
+<!-- MAIN TITLE -->
+		<div class="main-title" style="background-image: url('{% static 'img/1.jpeg' %}')">
+			<div class="container">
+				<h1 class="main-title__primary">Trucking Service</h1>
+			</div>
+		</div><!-- /.main-title -->
+
+		<!-- BREADCRUMBS -->
+		<div class="breadcrumbs">
+			<div class="container">
+				<span>
+					<a class="home" href="{% url 'home' %}" title="Go to CargoPress." rel="v:url">Logistics Transport Care</a>
+				</span>
+				<span>
+					<a class="post post-page" href="{% url 'services' %}" title="Go to Services." rel="v:url">Services</a>
+				</span>
+				<span>
+					<span>Trucking Service</span>
+				</span>
+			</div>
+		</div><!-- /.breadcrumbs -->
+
+		<div class="container">
+
+			<div class="row">
+
+				<main class="col-xs-12 col-md-9 col-md-push-3">
+
+					<div class="row margin-bottom-30">
+
+						<div class="col-sm-6">
+
+							<p>
+								Our trucking service is based on the principle of providing our clients with the flexibility and reliability, to move legal load across town, or across the country, whenever they want. Our in-house team of experienced drivers We believe in providing quality services to our clients, and with the experience of decades backing us in the field of logistics, there is nothing we overlook when we handle your cargo. Starting from loading to unloading at the destination, and maintaining the highest standards in terms of safety while in transit, we take nothing to chance. Even if the load is oversized or over-dimensional in nature, our logistic experts and technicians take care of the minute details to ensure the safety of the delivery at its destination, and on time, every time.
+							</p>
+
+							<p>
+								We ensure that our fleet of trucks are always well maintained, and have the best and the most updated fleet of trucks in service to ensure that it is capable of delivering high value, and oversized deliverables, efficiently and effectively, without causing any kind of loss, which is generally the case seen with many outsourced trucking service providers. Our in-house team of experienced drivers, logistic experts, repair and maintenance technicians are on guard 24 by 7 to ensure that the trucks are ready on time, and in optimum condition to handle your deliveries.
+							</p>
+
+						</div><!-- /.col -->
+
+						<div class="col-sm-6">
+
+							<p>
+								<img alt="placeholder" src="{% static 'img/slider6.jpg' %}" class="alignnone">
+							</p>
+
+							<p>
+								<img alt="placeholder" src="{% static 'img/slider8.jpg' %}" class="alignnone">
+							</p>
+
+						</div><!-- /.col -->
+
+					</div><!-- /.row -->
+
+				</main><!-- /.col -->
+
+				<div class="col-xs-12 col-md-3 col-md-pull-9">
+
+					<div class="sidebar widget_nav_menu">
+            <ul class="menu" id="menu-services-menu">
+							<li>
+								<a href="{% url 'services' %}">All Services</a>
+							</li>
+							<li>
+								<a href="{% url 'services_ground_transport' %}">Ground Transport</a>
+							</li>
+							<li>
+								<a href="{% url 'services_cargo' %}">Cargo</a>
+							</li>
+							<li>
+								<a href="{% url 'services_ware_housing' %}">Warehousing</a>
+							</li>
+							<li>
+								<a href="{% url 'services_logistic_service' %}">Logistic Service</a>
+							</li>
+							<li class="current-menu-item">
+								<a href="{% url 'services_truck_service' %}">Trucking Service</a>
+							</li>
+							<li>
+								<a href="{% url 'services_storage' %}">Storage</a>
+							</li>
+						</ul>
+					</div><!-- /.sidebar -->
+
+				</div><!-- /.col -->
+
+			</div><!-- /.row -->
+
+		</div><!-- /.container -->
+{% endblock %}

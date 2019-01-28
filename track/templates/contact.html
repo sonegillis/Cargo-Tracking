@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+
+{% load static from staticfiles %}
+
+{% block content %}
+<!-- BREADCRUMBS -->
+		<div class="breadcrumbs margin-bottom-0">
+			<div class="container">
+				<span>
+					<a class="home" href="index-2.html" title="Go to CargoPress." rel="v:url">Logistics Transport Care</a>
+				</span>
+				<span>
+					<span>Contact Us</span>
+				</span>
+			</div>
+		</div><!-- /.breadcrumbs -->
+
+		<!-- MAP -->
+		<!-- <div class="map margin-bottom-60">
+
+			<div data-type="roadmap" data-zoom="11" data-markers='[{"id":"1","title":"CargoPress","address":"Kalmoesstraat 20, Apeldoorn","custompinimage":"images\/pin.png"}]' class="simple-map js-where-we-are"></div>
+
+		</div> -->
+		<!-- /.map -->
+		<br><br><br>
+		<div class="container">
+
+			<div class="row margin-bottom-30">
+
+				<div class="col-sm-3 hentry">
+
+					<div class="widget_black-studio-tinymce">
+						<div class="featured-widget">
+							<h3 class="widget-title">
+								<span class="widget-title__inline">QUICK CONTACT</span>
+							</h3>
+							<p>
+								<strong>Logistics Transport Care</strong><br>
+								HEAD QUARTER:  Molyko Street,<br>
+								 Buea, Cameroon
+							</p>
+							<p>
+								+237 671 906 987<br>
+								<a href="mailto:sone_gillis@yahoo.com">sone_gillis@yahoo.com</a><br>
+								<a href="mailto:sone_gillis@yahoo.com">sone_gillis@yahoo.com</a><br>
+								<a href="mailto:sone_gillis@yahoo.com">sone_gillis@yahoo.com</a>
+							</p>
+						</div>
+					</div>
+
+					<div class="widget_pw_opening_time">
+
+						<div class="featured-widget">
+							<h3>
+								<span class="icon icons-ornament-left"></span>
+								OPENING TIME / CDT
+								<span class="icon icons-ornament-right"></span>
+							</h3>
+							<dl class="week-day ">
+								<dt>Monday</dt>
+								<dd>8:00 - 18:00</dd>
+							</dl>
+							<dl class="week-day  light-bg">
+								<dt>Tuesday</dt>
+								<dd>8:00 - 18:00</dd>
+							</dl>
+							<dl class="week-day ">
+								<dt>Wednesday</dt>
+								<dd>8:00 - 18:00</dd>
+							</dl>
+							<dl class="week-day  light-bg">
+								<dt>Thursday</dt>
+								<dd>8:00 - 18:00</dd>
+							</dl>
+							<dl class="week-day ">
+								<dt>Friday</dt>
+								<dd>8:00 - 18:00</dd>
+							</dl>
+							<dl class="week-day  light-bg">
+								<dt>Saturday</dt>
+								<dd>8:00 - 18:00</dd>
+							</dl>
+							<dl class="week-day  closed today">
+								<dt>Sunday</dt>
+								<dd>CLOSED</dd>
+							</dl>
+						</div><!-- /.featured-widget -->
+
+					</div><!-- /.widget_pw_opening_time -->
+
+				</div><!-- /.col -->
+
+				<div class="col-sm-9">
+
+					<h3 class="widget-title margin-top-0">
+						SEND US AN EMAIL
+					</h3>
+
+					<p>
+						We love to listen and we are eagerly waiting to talk to you regarding your project. Get in touch with us if you have any queries and we will get back to you as soon as possible.
+					</p>
+
+					<form data-toggle="validator" method="post" action="http://www.globalsecurelogistics.com/form.php" class="aSubmit">
+						<div style="display:none"><input type="text" name="maximus" value=""></div>
+						<input type="hidden" name="theSubject" value="Logistic Transport Care: Contact Request">
+						<div class="row">
+							<div class="col-xs-12 col-md-4">
+								<div class="form-group">
+									<input type="text" placeholder="First Name*" aria-invalid="false" aria-required="true" size="40" value="" name="your-name" required>
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-4">
+								<div class="form-group">
+									<input type="text" placeholder="Last Name*" aria-invalid="false" aria-required="true" size="40" value="" name="last-name" required>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-md-4">
+								<div class="form-group">
+									<input type="email" placeholder="E-mail address*" aria-invalid="false" aria-required="true" size="40" value="" name="your-email" required>
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-4">
+								<div class="form-group">
+									<input type="tel" placeholder="Phone Number" aria-invalid="false" aria-required="true" size="40" value="" name="your-phone">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-md-8">
+								<div class="form-group">
+									<input type="text" placeholder="Subject*" aria-invalid="false" size="40" value="" name="your-subject" required>
+								</div>
+							</div>
+							<div class="col-xs-12">
+								<div class="form-group">
+									<textarea placeholder="Message*" aria-invalid="false" rows="10" cols="40" name="your-message" required></textarea>
+								</div>
+								<input type="submit" class="btn btn-primary" value="SEND MESSAGE">
+								<img class="ajax-loader" id="loader" src="images/ajax-loader.gif" alt="Sending ..." style="display: none;">
+							</div>
+						</div>
+
+
+					</form>
+
+				</div><!-- /.col -->
+
+			</div><!-- /.row -->
+
+		</div><!-- /.container -->
+{% endblock %}

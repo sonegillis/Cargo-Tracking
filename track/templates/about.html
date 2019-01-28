@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% load static from staticfiles %}
+{% block content %}
+<!-- MAIN TITLE -->
+		<div class="main-title" style="background-image: url('{% static 'img/1.jpeg' %}')">
+			<div class="container">
+				<h1 class="main-title__primary">About Us</h1>
+				<h3 class="main-title__secondary">Something about us from a little bit of different perspective</h3>
+			</div>
+		</div><!-- /.main-title -->
+
+		<!-- BREADCRUMBS -->
+		<div class="breadcrumbs">
+			<div class="container">
+				<span>
+					<a class="home" href="{% url 'home' %}" title="Go to CargoPress." rel="v:url">Logistics Transport Care</a>
+				</span>
+				<span>
+					<span>About Us</span>
+				</span>
+			</div>
+		</div><!-- /.breadcrumbs -->
+
+		<div class="container">
+
+			<div class="row margin-bottom-30">
+
+				<div class="col-sm-6">
+
+					<p>
+						Logistics Transport Care offers a complete range of sea freight services worldwide, with options ranging from smaller consolidated LCL (Less than Container Load) cargo to large FCL (Full Container Load) cargo, also we handle all kinds of special containers, such as Open Top Container, Flat Rack Container, Reefer Container, Hanging Garment Container and Tank Container.
+
+						We facilitate prompt reliable deliveries for all general, containerized, over-dimensional and bulk cargoes world wide.
+					</p>
+
+					<p>
+						Logistics Transport Care also provides a total service covering not only your sea freight movement of your cargo, but also covers all other related services, such as customs clearance and tariff classification.
+						We work as an extension of our customers business team ensuring peace of mind shipments arrive as expected.
+
+						Our in-depth market knowledge and relationships across the shipping industry are enabling us to identify our customers needs and fit it, and arrange safe procedures to get the work done the best method.
+					</p>
+
+					<p><br>
+						<b>Global Network</b><br>
+						Logistics Transport Care ensures a consistent customer experience around the globe, with a network that comprises an extensive list of offices throughout the world, and local employees in every market to provide you with coverage and representation by dealing efficiently with transport complexities, and communicating directly with shippers and consignees in their own languages and time zones.</br>
+						<b>Our Standards</b><br>
+						We have built our company on high standards of honesty and integrity and we drive these values throughout our business. These are core principles to our success and shape our daily interactions.
+
+					</p>
+
+					<p>
+						<b>Our Vision</b><br>
+						Is to establish ourselves as the best logistics service provider in the region by garnering the respect of our partners and customers, and developing successful and satisfied customers by focusing on our approach of solving our customers logistics processes and freight management needs professionally and efficiently.
+					</p>
+
+				</div><!-- /.col -->
+
+				<div class="col-sm-6">
+
+					<p>
+						<a href="#">
+							<img alt="placeholder" src="{% static 'img/bg-3.jpg' %}" class="alignnone">
+						</a>
+					</p>
+					<p>
+						<a href="#">
+							<img alt="placeholder" src="{% static 'img/bg-2-1.jpg' %}" class="alignnone">
+						</a>
+					</p>
+					<p>
+						<a href="#">
+							<img alt="placeholder" src="{% static 'img/bg-4.jpg' %}" class="alignnone">
+						</a>
+					</p>
+
+				</div><!-- /.col -->
+
+			</div><!-- /.row -->
+
+
+		</div><!-- /.container -->
+{% endblock %}

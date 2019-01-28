@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+	<title>VEhHealth Record</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include 'snippets/bootstrap.html' %}
+  {% load static %}
+	<link type="text/css" rel="stylesheet" href="{% static 'css/stylesheethome.css' %}">
+	<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<script type="text/javascript" src={% static 'js/bootstrap.js' %}></script>
+	<script type="text/javascript" src={% static 'js/jquery-3.3.1.js' %}></script>
+  <script type="text/javascript" src={% static 'js/manageconsultant.js' %}></script>
+
+  <script type="text/javascript" >
+    var divs = ["seeconsultant", "createconsultant", "editconsultant", "consultantstatistics","totalconsultations"];
+    var visibleDivId = null;
+    function divVisibility(divId) {
+        if(visibleDivId === divId) {
+        visibleDivId = null;
+      } else {
+        visibleDivId = divId;
+        }
+        hideNonVisibleDivs(divId);
+    }
+    function hideNonVisibleDivs(divId) {
+        var i, divId, div;
+        for(i = 0; i < divs.length; i++) {
+          divId = divs[i];
+          div = document.getElementById(divId);
+          if(visibleDivId === divId) {
+               div.style.display = "";
+           } else {
+              div.style.display = "none";
+          }
+        }
+    }
+  </script>
+	<style>
+		.searchdiv {
+		    position: absolute;
+		   	top:100%;
+		    z-index: 10;
+		}
+
+		p.background:hover {
+			background-color: #FF6600;
+		}}
+		</style>
+		<script type="text/javascript">
+		function changebackground(argument) {
+			this.style.background-color="blue";
+			// body...
+		}
+
+	</script>
+  <style>
+  #header {
+
+	background-color: #5c755e;
+	margin: 10px;
+	height: 90px;
+	border-radius:10px;
+	text-align: center;
+    color: #CCFFFF;
+	padding-top: 1px;
+}
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: auto;}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;}
+    }
+	footer {
+      background-color: RoyalBlue;
+
+      color: white;
+	  text-align: center;
+	  clear:both;
+    }
+
+.tooltip1 {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip1 .tooltiptext1 {
+    visibility: hidden;
+    width: 200px;
+    background-color:;
+    color: red;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid black;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 110%;
+    left: 40%;
+    margin-left: -60px;
+}
+
+.tooltip1 .tooltiptext1::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+  </style>
+</head>
+<body >
+  {% load i18n %}
+  <div id="header">
+     <h4>
+       <pre style="background-color: #5c755e; float: right; border: 0px"> <a href="/administration/home/" style="color: #ffffff;">{% trans 'Home' %}</a> <i style="color:#ffffff">{% trans 'Welcome' %},</i><b style="color:#90cead">{{full_name}}</b> <a href="/logout/admin/"  style="color: #ffffff;">{% trans 'Logout' %}</a></pre>
+     </h4>
+    <div style="float: left">
+       <span title="English"><a lang="en" href="/en/administration/manage/consultants/" style="color:#FF9999">English</a></span>
+       <span title="Français"><a lang="fr" href="/fr/administration/manage/consultants/" style="color: #99CCFF">Français</a></span>
+    </div>
+    <h2> {% trans 'Manage Nurses' %}</h2>
+
+  </div>
+
+
+	<div class="container-fluid" id="maindiv">
+	  <div class="row content" style="height:767px">
+		<div class="col-sm-3 sidenav" style="height:100%;text-decoration-color: black;">
+			<br>
+			<div class="well" style="padding: 9px">
+				<a href="#" onclick="queryServerToSeeConsultants()" class="btn btn-default btn-lg btn-block btn-huge"> {% trans 'See' %} </button> </a>
+			</div>
+			<div class="well" style="padding: 9px">
+				<a href="#" onclick="divVisibility('createconsultant')" class="btn btn-default btn-lg btn-block btn-huge"> {% trans 'Create' %} </button> </a>
+			</div>
+			<div class="well" style="padding: 9px">
+				<a href="#" onclick="divVisibility('editconsultant')" class="btn btn-default btn-lg btn-block btn-huge"> {% trans 'Edit' %} </button> </a>
+			</div>
+			<div class="well" style="padding: 9px">
+				<a href="#" onclick="divVisibility('consultantstatistics')" class="btn btn-default btn-lg btn-block btn-huge"> {% trans 'Time statistics' %} </button> </a>
+			</div>
+			<div class="well" style="padding: 9px">
+				<a href="#" onclick="divVisibility('totalconsultations')" class="btn btn-default btn-lg btn-block btn-huge"> {% trans 'Total Consultations' %} </button> </a>
+			</div>
+		</div>
+
+		<div class="col-sm-9" >
+
+
+			<div id="seeconsultant" style="display:none;">
+			<h3 style="text-align: center"> {% trans 'All Nurses' %} </h3>
+			<hr>
+				<div class="well">
+					<table class="table table-bordered">
+					    <thead>
+					      <tr>
+					        <th>S/N</th>
+					        <th>{% trans "Name" %}</th>
+					        <th>{% trans "Id" %}</th>
+                  <th>{% trans "Created By" %}</th>
+					        <th>{% trans "Date of Creation" %}</th>
+					      </tr>
+					    </thead>
+					    <tbody id="seeconsultanttable">
+
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+
+			<div id="createconsultant" style="display:none;">
+			<hr>
+			<div class="well" id="Register">
+				<div id="errordiv_profile" class="container-fluid" style="display:none; color:red"> 
+						{% trans 'Please Fill In All The Information Below And Correctly' %}
+				</div>
+				<form class="form-horizontal" action="">
+          {% csrf_token %}
+				<legend></legend>
+				<fieldset>
+				<legend><h2 style="text-align:center" ><b>{% trans 'Register Nurse' %}</b></h2></legend>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="name">{% trans 'First Names' %}:</label>
+					<div class="col-sm-10">
+					  <input id="first_name" type="text" class="form-control" placeholder="{% trans 'First Names' %}"  name="name" autocomplete="off" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="name">{% trans 'Last Names' %}:</label>
+					<div class="col-sm-10">
+						<input id="last_name" type="text" class="form-control" placeholder="{% trans 'Last Names' %}"  name="patient" autocomplete="off" required>
+					</div>
+				</div>
+
+				<div class="row">
+				  <label class="control-label col-sm-2" for="name">{% trans 'Date of Birth' %}:</label>
+				  <div class="col-sm-1" style="margin-top:6px">{% trans 'Day' %}:</div>
+				  <div class="col-sm-2" style="padding-right:70px">
+						<select id="b_day" class="form-control" name="day" >
+							{% for day in days %}
+							<option value='{{day}}'>{{day}}</option>
+							{% endfor %}
+						</select>
+				  </div>
+				  <div class="col-sm-1" style="margin-top:6px;padding-left:30px">{% trans 'Month' %}:</div>
+				  <div class="col-sm-2">
+						<select id="b_month" class="form-control" name="month">
+							{% for month in months %}
+							<option value="{{month}}">{{month}}</option>
+							{% endfor %}
+						</select>
+				  </div>
+				  <div class="col-sm-1" style="margin-top:6px;padding-left:40px" >{% trans 'Year' %}:</div>
+				  <div class="col-sm-2">
+						<select id="b_year" class="form-control" name="year">
+							{% for year in years %}
+								<option value="{{year}}">{{year}}</option>
+							{% endfor %}
+						</select>
+				  </div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="name">{% trans 'Gender' %}:</label>
+					<div class = "col-sm-10" style="padding-left:14px" >
+						<label class="radio-inline">
+							<input type="radio" name="sex" >{% trans 'male' %}
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="sex" checked="checked">{% trans 'female' %}
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+				  <label class="control-label col-sm-2" for="name">{% trans 'Country' %}:</label>
+				  <div class="col-sm-4" >
+						<select id="country" type="text" class="form-control"name="country">
+							{% for country in countries %}
+							{% if country == "Cameroon" %}
+								<option value="{{country}}" title="{{country}}" selected>{{country}}</option>
+							{% endif %}
+							<option value="{{country}}" title="{{country}}">{{country}}</option>
+							{% endfor %}
+						</select>
+				  </div>
+				  <div class="col-sm-2" style="margin-top:6px;padding-left:30px">{% trans 'Phone' %}:</div>
+				  <div class="col-sm-2">
+					<input id="tel" type="tel" class="form-control" name="tel" autocomplete="off" required>
+				  </div>
+				</div>
+
+				<div class="form-group">
+				  <label class="control-label col-sm-2" for="address">{% trans 'Address' %}:</label>
+				  <div class="col-sm-10">
+					<input id="address" type="text" class="form-control" placeholder="{% trans 'Quarter, City' %}" name="address" required>
+				  </div>
+				</div>
+
+				<div class="form-group">
+							  <label class="control-label col-sm-2" for="name">{% trans 'ID Number' %}:</label>
+							  <div class="col-sm-10">
+								<input id="employee_id" type="number" class="form-control" placeholder="{% trans 'ID Number' %}"  name="id" autocomplete="off" required>
+							  </div>
+				</div>
+
+				<div class="form-group">
+				  <label class="control-label col-sm-2" for="name">{% trans 'Profession' %}:</label>
+				  <div class="col-sm-4">
+					<input id="proffession" type="text" class="form-control" placeholder="{% trans 'Profession' %}" name="profession" required>
+				  </div>
+				  <div class="col-sm-2" style="margin-top:6px;padding-left:72px" >
+					{% trans 'marital status' %}:
+				  </div>
+				  <div class="col-sm-2">
+					<select id="marital_status" type="text" class="form-control" name="maritalStatus">
+						<option value="single" selected>{% trans 'single' %}</option>
+						<option value="married">{% trans 'married' %}</option>
+						<option value="other">{% trans 'other' %}</option>
+					</select>
+				  </div>
+				</div>
+
+				<div class="form-group">
+				  <label class="control-label col-sm-2" for="religion">{% trans 'Religion' %}:</label>
+				  <div class="col-sm-10">
+					<input id="religion" type="text" class="form-control" placeholder="{% trans 'Religion' %}" name="religion" required>
+				  </div>
+				</div>
+				<div style="color:red" id="errordiv_registration">
+						
+				</div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="username"></label>
+          <div class="col-sm-6">
+          <input id="username" type="text" class="form-control" placeholder="{% trans 'Username' %}" name="username" autocomplete="off" required>
+          </div>
+          <div class="col-sm-4" style="color:red;">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="password1"></label>
+          <div class="col-sm-6">
+          <input id="password1" type="password" class="form-control" placeholder="{% trans 'Password' %}" name="password1">
+          </div>
+          <div class="col-sm-4" style="color:red;">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="password2"></label>
+          <div class="col-sm-6">
+          <input id="password2" type="password" class="form-control" placeholder="{% trans 'Confirm Password' %}" name="password2">
+          </div>
+          <div class="col-sm-4" style="color:red;">
+          </div>
+        </div>
+				<div class="form-group">
+				  <div class="col-sm-offset-2 col-sm-10">
+					<button id="add_employee" type="button" class="btn btn-warning">{% trans 'Submit' %}</button>
+				  </div>
+				</div>
+			</fieldset>
+		</form>
+				</div>
+			</div> <!-- closing the createconsultant's div-->
+
+			<div id="editconsultant" style="display: none;" >
+				<hr>
+				<div class="well" >
+				<form method="post" class="form-inline" action="#">
+					<button type="submit" class="btn btn-default col-xs-2">{% trans 'Search' %}</button>
+					<div class="input-group col-xs-10" onkeyup="document.getElementById('searchdiv').style.display='';">
+            {% csrf_token %}
+						<input id="searchinput" type="text" class="form-control" placeholder="{% trans 'Search Nurse By Name Or Phone Number' %}" name="search" autocomplete="off">
+						<div id="searchconsultant" class="searchdiv" style="background-color:white;width: 100%; display: none;">
+
+						</div>
+					</div>
+
+				</form>
+				</div>
+				<hr/>
+
+				<div id="edittable" style="display:;">
+
+						<form  method="post" class="form-horizontal" action=""  >
+							<fieldset>
+							<legend><h2 style="text-align:center" ><b>{% trans 'Edit' %}</b></h2></legend>
+							<div class="well">
+							<div class="form-group">
+							  <label class="control-label col-sm-2" for="name">{% trans 'First Names' %}:</label>
+							  <div class="col-sm-10">
+								<input id="edit_first_name" type="text" class="form-control" value="{{ first_name }}" name="name">
+							  </div>
+							</div>
+
+							<div class="form-group">
+							  <label class="control-label col-sm-2" for="name">{% trans 'Last Names' %}:</label>
+							  <div class="col-sm-10">
+								<input id="edit_last_name" type="text" class="form-control" value="{{ last_name }}" name="patient">
+							  </div>
+							</div>
+							<div class="form-group">
+							  <label class="control-label col-sm-2" for="name">{% trans 'Address' %}:</label>
+							  <div class="col-sm-10">
+								<input id="edit_address" type="text" class="form-control" value="{{ address }}" name="address">
+							  </div>
+							</div>
+
+							<div class="form-group">
+							  <label class="control-label col-sm-2" for="name">{% trans 'ID Number' %}:</label>
+							  <div class="col-sm-10">
+								<input id="edit_employee_id" type="number" class="form-control" value="{{ employee_id }}" name="id">
+							  </div>
+							</div>
+							<div class="row">
+							  <label class="control-label col-sm-2" for="name">{% trans 'Date of Birth' %}:</label>
+							  <div class="col-sm-1" style="margin-top:6px">{% trans 'Day' %}:</div>
+							  <div class="col-sm-2" style="padding-right:50px">
+								<input id="edit_b_day" type="number" class="form-control" value="{{ b_day }}" name="day">
+							  </div>
+							  <div class="col-sm-1" style="margin-top:6px;padding-left:45px">{% trans 'Month' %}:</div>
+							  <div class="col-sm-2">
+									<select id="edit_b_month" class="form-control" name="month">
+										{% for month in months %}
+										<option value="{{month}}">{{month}}</option>
+										{% endfor %}
+									</select>
+							  </div>
+							  <div class="col-sm-1" style="margin-top:6px;padding-left:55px" >{% trans 'Year' %}:</div>
+							  <div class="col-sm-2">
+								<input id="edit_b_year" type="number" class="form-control" value="{{ b_year }}" name="year">
+							  </div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="name">{% trans 'Gender' %}:</label>
+								<div class = "col-sm-10" value="male" style="padding-left:14px" >
+									<label class="radio-inline">
+										<input type="radio" name="sex">{% trans 'male' %}
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="sex">{% trans 'female' %}
+									</label>
+								</div>
+							</div>
+							<div class="form-group">
+							  <label class="control-label col-sm-2" for="name">{% trans 'Country' %}:</label>
+							  <div class="col-sm-4" >
+								<input id="edit_country" type="text" class="form-control" value="{{ country }}" name="id">
+							  </div>
+							  <div class="col-sm-2" style="margin-top:6px;padding-left:55px">{% trans 'Phone' %}:</div>
+							  <div class="col-sm-2">
+								<input id="edit_tel1" type="tel" class="form-control" value="{{ tel1 }}" name="tel">
+							  </div>
+							</div>
+
+							<div class="form-group">
+							  <label class="control-label col-sm-2" for="name">{% trans 'Profession' %}:</label>
+							  <div class="col-sm-4">
+								<input id="edit_proffession" type="text" class="form-control" value="{{ proffession }}" name="profession">
+							  </div>
+							  <div class="col-sm-2" style="margin-top:6px;padding-left:72px">
+								{% trans 'marital status' %}:
+							  </div>
+							  <div class="col-sm-2">
+								<select id="edit_marital_status" type="text" class="form-control" name="maritalStatus">
+									<option value="single" selected>{% trans 'single' %}</option>
+									<option value="married">{% trans 'married' %}</option>
+									<option value="other">{% trans 'other' %}</option>
+								</select>
+							  </div>
+
+							  <form>
+							  <input id="is_active" type="radio" name="job status" value="available" checked>{% trans 'Available' %}
+
+							  </form>
+							</div>
+
+							<div class="form-group">
+							  <label class="control-label col-sm-2" for="address">{% trans 'Religion' %}:</label>
+							  <div class="col-sm-10">
+								<input id="edit_religion" type="text" class="form-control" value="{{ religion }}" name="religion">
+							  </div>
+							</div>
+
+							<div class="form-group">
+							  <div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-primary">{% trans 'Save' %}</button>
+								<button type="submit" class="btn btn-danger" style="float: right" >{% trans 'Delete' %}</button>
+							  </div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+
+			</div> <!--closing the editconsultant-->
+
+			<div id="consultantstatistics" style="display: none;">
+				<hr>
+				<div class="well row">
+					<div class="col-sm-1">
+						{% trans 'View Statistics' %}
+					</div>
+					<div class="col-sm-1">
+						{% trans 'From' %}:
+					</div>
+					<div class="col-sm-3">
+						<input id="stats_from" type="date" />
+					</div>
+					<div class="col-sm-1">
+						{% trans 'To' %}:
+					</div>
+					<div class="col-sm-3">
+						<input id="stats_to" type="date" />
+					</div>
+					<div class="col-sm-3">
+						<button id="searchconsultantstats" type="button" class="btn btn-primary">Search</button>
+					</div>
+					
+				</div>
+				<div class="container-fluid">
+						<table class="table table-bordered">
+								<thead>
+										<tr>
+												<th>S/N</th>
+												<th>{% trans 'Date' %}</th>
+												<th>{% trans 'Name' %}</th>
+												<th>{% trans 'Login Time' %}</th>
+												<th>{% trans 'Logout Time' %}</th>
+										</tr>
+								</thead>
+								<tbody id="timestats">
+
+								</tbody>
+						</table>
+				</div>
+			</div>
+			<div id="totalconsultations" style="display: none;">
+				<h6>Day: 25-05-2018</h6>
+				<h4 style="text-align:center"><b>Total Consultations </b></h4>
+				<h3>Consultant: Ebenezer Wandaboy</h3>
+				<div class="well">
+                 <table class="table table-bordered">
+                  <thead>
+                      <tr>
+                         <th>S/N</th>
+                         <th>Patient's Name</th>
+                         <th>Patient's ID</th>
+		                 <th>Sent to Dr</th>
+
+                      </tr>
+                 </thead>
+    				<tbody>
+                         <tr>
+	                         <td>1</td>
+	                         <td>Pangsui Yusuf</td>
+	                         <td>152562511522</td>
+	                         <td>Hubert Ngai</td>
+     					 </tr>
+                           <tr>
+						        <td>2</td>
+						        <td>Grand charlot</td>
+						        <td>455258515</td>
+							    <td>Mesode Kelly</td>
+		                   </tr>
+     					   <tr>
+						        <td>3</td>
+						        <td>Eruck Emmanuel</td>
+						        <td>4525125226594</td>
+								<td>Pangsui WELLA</td>
+						   </tr>
+	                </tbody>
+	            </table>
+	            <button type="button" onclick="divVisibility('')"  class="btn btn-danger" >Clear Table</button>
+
+              </div>
+              <hr>
+              <h3>Consultant: Chabaka Leconte</h3>
+              <div class="well">
+              	<table class="table table-bordered">
+                  <thead>
+                      <tr>
+                         <th>S/N</th>
+                         <th>Patient's Name</th>
+                         <th>Patient's ID</th>
+		                 <th>Sent to Dr</th>
+
+                      </tr>
+                 </thead>
+    				<tbody>
+                         <tr>
+	                         <td>1</td>
+	                         <td>Pangsui Yusuf</td>
+	                         <td>152562511522</td>
+	                         <td>Hubert Ngai</td>
+     					 </tr>
+                           <tr>
+						        <td>2</td>
+						        <td>Grand charlot</td>
+						        <td>455258515</td>
+							    <td>Mesode Kelly</td>
+		                   </tr>
+     					   <tr>
+						        <td>3</td>
+						        <td>Eruck Emmanuel</td>
+						        <td>4525125226594</td>
+								<td>Pangsui WELLA</td>
+						   </tr>
+	                </tbody>
+	            </table>
+	            <button type="button" onclick="divVisibility('')"  class="btn btn-danger" >Clear Table</button>
+
+              </div>
+               <button type="button" onclick="divVisibility('')"  class="btn btn-danger" style="float: right">Clear All</button>
+
+        	</div>
+
+
+		</div>
+	</div>
+ 	<div class="panel-footer">&copy {% trans 'Powered by VEhSEh' %}</div>
+
+  <script type="text/javascript">
+    if("{{edit_consultant}}"=="true"){
+      if("{{gender}}"=="m"){
+        $("input:radio[name=sex]:nth(0)").attr('checked', true);
+      }
+      else{
+        $("input:radio[name=sex]:nth(1)").attr('checked', true);
+      }
+    }
+
+  </script>
+</body>
+</html>

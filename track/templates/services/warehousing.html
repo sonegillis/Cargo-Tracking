@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block content %}
+<!-- MAIN TITLE -->
+		<div class="main-title" style="background-image: url('{% static 'img/1.jpeg' %}')">
+			<div class="container">
+				<h1 class="main-title__primary">Warehousing</h1>
+			</div>
+		</div><!-- /.main-title -->
+
+		<!-- BREADCRUMBS -->
+		<div class="breadcrumbs">
+			<div class="container">
+				<span>
+					<a class="home" href="{% url 'home' %}" title="Go to CargoPress." rel="v:url">Logistics Transport Care</a>
+				</span>
+				<span>
+					<a class="post post-page" href="{% url 'services' %}" title="Go to Services." rel="v:url">Services</a>
+				</span>
+				<span>
+					<span>Warehousing</span>
+				</span>
+			</div>
+		</div><!-- /.breadcrumbs -->
+
+		<div class="container">
+
+			<div class="row">
+
+				<main class="col-xs-12 col-md-9 col-md-push-3">
+
+					<div class="row margin-bottom-30">
+
+						<div class="col-sm-6">
+
+							<p>
+								Our warehousing and distribution services are regularly audited and analyzed to ensure that it meets the contemporary business models, and any and all upgrades are made to ensure our services continue to help our clients meet their logistic requirements efficiently. Our logistics team have years of experience in this business and can handle long term and large scale assignments with utter professionalism, and our customer service helps the clients to stay in the loop throughout the process, whenever they require any assistance. Consult with our experts today for your logistics, warehousing and distribution services requirements, and allow us to make a positive difference in your business.
+							</p>
+
+							<p>
+								Moreover, our supply chain management experts would design a logistic process especially for you to align with your business in an integrated fashion. Our warehousing services, includes a wide range of services that includes inventory control and management, load building, yard management, static and dynamic replenishment, kitting, order processing, vendor performance, cross docking, supply chain management, logistic integration, bar coding, quality control, labelling, carrier performance, and so on.
+							</p>
+
+						</div><!-- /.col -->
+
+						<div class="col-sm-6">
+
+							<p>
+								<img alt="placeholder" src="{% static 'img/slider3.jpg' %}" class="alignnone">
+							</p>
+
+							<p>
+								<img alt="placeholder" src="{% static 'img/0.jpg' %}" class="alignnone">
+							</p>
+
+						</div><!-- /.col -->
+
+					</div><!-- /.row -->
+
+				</main><!-- /.col -->
+
+				<div class="col-xs-12 col-md-3 col-md-pull-9">
+
+					<div class="sidebar widget_nav_menu">
+            <ul class="menu" id="menu-services-menu">
+							<li>
+								<a href="{% url 'services' %}">All Services</a>
+							</li>
+							<li>
+								<a href="{% url 'services_ground_transport' %}">Ground Transport</a>
+							</li>
+							<li>
+								<a href="{% url 'services_cargo' %}">Cargo</a>
+							</li>
+							<li class="current-menu-item">
+								<a href="{% url 'services_ware_housing' %}">Warehousing</a>
+							</li>
+							<li>
+								<a href="{% url 'services_logistic_service' %}">Logistic Service</a>
+							</li>
+							<li>
+								<a href="{% url 'services_truck_service' %}">Trucking Service</a>
+							</li>
+							<li>
+								<a href="{% url 'services_storage' %}">Storage</a>
+							</li>
+						</ul>
+					</div><!-- /.sidebar -->
+
+				</div><!-- /.col -->
+
+			</div><!-- /.row -->
+
+		</div><!-- /.container -->
+{% endblock %}

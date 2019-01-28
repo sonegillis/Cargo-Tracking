@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% load static from staticfiles %}
+
+{% block content %}
+<!-- MAIN TITLE -->
+  <div class="main-title" style="background-image: url('{% static 'img/slider7.jpg' %}')">
+    <div class="container">
+      <h1 class="main-title__primary">Tracker</h1>
+      <h3 class="main-title__secondary">Know exactly where your cargo/freight is at all times</h3>
+    </div>
+  </div><!-- /.main-title -->
+
+  <!-- BREADCRUMBS -->
+  <div class="breadcrumbs">
+    <div class="container">
+      <span>
+        <a class="home" href="{% url 'home' %}" title="Go to CargoPress." rel="v:url">Logistic Trasport Care</a>
+      </span>
+      <span>
+        <span>Tracking Information</span>
+      </span>
+    </div>
+  </div><!-- /.breadcrumbs -->
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-sm-6 margin-bottom-60">
+
+        <form data-toggle="validator" method="" action="" class="aSubmit">
+          <div style="display:none"><input type="text" name="maximus" value=""></div>
+          <input type="hidden" name="theSubject" value="Logistic Transport Care: Contact Request">
+          <div class="row">
+            <div class="col-xs-6 col-md-2">
+              <p>Status</p>
+            </div>
+            <div class="col-xs-30 col-md-10">
+              <div class="form-group">
+                {% if package.has_arrived %}
+                <input type="text" disabled aria-invalid="false" aria-required="true" size="40" value="ARRIVED" name="your-name" required>
+                {% else %}
+                <input type="text" disabled aria-invalid="false" aria-required="true" size="40" value="IN TRANSIT" name="your-name" required>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-2">
+              <p>Customer Name</p>
+            </div>
+            <div class="col-xs-30 col-md-10">
+              <div class="form-group">
+                <input type="text" disabled aria-invalid="false" aria-required="true" size="40" value="{{package.customer_name}}" name="your-name" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-2">
+              <p>Customer Contact</p>
+            </div>
+            <div class="col-xs-30 col-md-10">
+              <div class="form-group">
+                <input type="text" disabled aria-invalid="false" aria-required="true" size="40" value="{{package.customer_tel}}" name="your-name" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-2">
+              <p>Package</p>
+            </div>
+            <div class="col-xs-30 col-md-10">
+              <div class="form-group">
+                <input type="text" disabled aria-invalid="false" aria-required="true" size="40" value="{{package.package_name}}" name="your-name" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-2">
+              <p>Type</p>
+            </div>
+            <div class="col-xs-30 col-md-10">
+              <div class="form-group">
+                <input type="text" disabled aria-invalid="false" aria-required="true" size="40" value="DISCRETE" name="your-name" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-2">
+              <p>Weight</p>
+            </div>
+            <div class="col-xs-30 col-md-10">
+              <div class="form-group">
+                <input type="text" disabled aria-invalid="false" aria-required="true" size="40" value="{{package.weight}}" name="your-name" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-2">
+              <p>Left From</p>
+            </div>
+            <div class="col-xs-30 col-md-10">
+              <div class="form-group">
+                <input type="text" disabled aria-invalid="false" aria-required="true" size="40" value="{{package.from_location}}" name="your-name" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-md-2">
+              <p>Destination</p>
+            </div>
+            <div class="col-xs-30 col-md-10">
+              <div class="form-group">
+                <input type="text" disabled aria-invalid="false" aria-required="true" size="40" value="{{package.to_location}}" name="your-name" required>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div><!-- /.col -->
+
+      <div class="col-sm-6 margin-bottom-60"> <!--google map div -->
+
+      </div>
+
+    </div><!-- /.row -->
+
+  </div><!-- /.container -->
+{% endblock %}
+
+{% block javascript %}
+<script>
+  $(function(){
+
+    var twoToneButton = document.querySelector('.twoToneButton');
+
+    twoToneButton.addEventListener("click", function() {
+        twoToneButton.innerHTML = "TRACKING";
+        twoToneButton.classList.add('spinning');
+
+      setTimeout(
+            function  (){
+                twoToneButton.classList.remove('spinning');
+                twoToneButton.innerHTML = "TRACK";
+
+            }, 6000);
+    }, false);
+
+});
+</script>
+{% endblock %}

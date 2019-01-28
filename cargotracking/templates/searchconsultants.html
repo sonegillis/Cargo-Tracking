@@ -1,0 +1,20 @@
+{% if reason == "for seeing" %}
+{% for id, employee, created_by in employees %}
+<tr>
+  <td>{{ forloop.counter0|add:1 }}</td>
+  <td>{{ employee.first_name }} {{ employee.last_name }}</td>
+  <td>{{ id }}</td>
+  <td>{{ created_by }}</td>
+  <td>{{ employee.date_joined }}</td>
+</tr>
+{% endfor %}
+{% endif %}
+
+{% if reason == "for editting" %}
+{% for x, y, z, employee_id in employees %}
+    <a href="/administration/edit/consultant/{{ employee_id }}/" class="list-group-item">
+        <h6 class="list-group-item-heading">{{ x }}</h6>
+        <p class="list-group-item-text"><b> <h6>{{ y }}</h6></b> <i><h6>{{ z }}</h6></i></p>
+    </a>
+{% endfor %}
+{% endif %}

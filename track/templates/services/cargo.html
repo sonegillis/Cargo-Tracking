@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block content %}
+<!-- MAIN TITLE -->
+		<div class="main-title" style="background-image: url('{% static 'img/1.jpeg' %}')">
+			<div class="container">
+				<h1 class="main-title__primary">Cargo</h1>
+			</div>
+		</div><!-- /.main-title -->
+
+		<!-- BREADCRUMBS -->
+		<div class="breadcrumbs">
+			<div class="container">
+				<span>
+					<a class="home" href="{% url 'home' %}" title="Go to CargoPress." rel="v:url">Logistic Trasport Care</a>
+				</span>
+				<span>
+					<a class="post post-page" href="{% url 'services' %}" title="Go to Services." rel="v:url">Services</a>
+				</span>
+				<span>
+					<span>Cargo</span>
+				</span>
+			</div>
+		</div><!-- /.breadcrumbs -->
+
+		<div class="container">
+
+			<div class="row">
+
+				<main class="col-xs-12 col-md-9 col-md-push-3">
+
+					<div class="row margin-bottom-30">
+
+						<div class="col-sm-6">
+
+							<p>
+								Team of cargo experts are always available to help you with any queries you might have, or if you want to consult in length your logistic requirements. We would study your requirements and provide you with a quote that would not only suit your budget, but would also save you considerable amount of money in the long term. And, we guarantee that.
+							</p>
+
+							<p>
+								Our logistics processes, services, tools and systems in combination with strategic warehouse locations help our clients to meet their business logistic needs and achieve their long term business goals with much more accuracy. Moreover, our supply chain management experts would design a logistic process especially for you to align with your business in an integrated fashion.
+							</p>
+
+							<p>
+								Whether it is the one time delivery you need done, or whether you are looking for professional and commercial trucking service to offload your ongoing trucking requirements, we can assure you of the best services at the most economical pricing. Our logistics consultants are always available to help you with any further and detailed queries you might have regarding our trucking services.
+							</p>
+
+						</div><!-- /.col -->
+
+						<div class="col-sm-6">
+
+							<p>
+								<img alt="placeholder" src="{% static 'img/sdec2.jpg' %}" class="alignnone">
+							</p>
+
+							<p>
+								<img alt="placeholder" src="{% static 'img/sdec1.jpg' %}" class="alignnone">
+							</p>
+
+						</div><!-- /.col -->
+
+					</div><!-- /.row -->
+
+				</main><!-- /.col -->
+
+				<div class="col-xs-12 col-md-3 col-md-pull-9">
+
+					<div class="sidebar widget_nav_menu">
+						<ul class="menu" id="menu-services-menu">
+							<li>
+								<a href="{% url 'services' %}">All Services</a>
+							</li>
+							<li>
+								<a href="{% url 'services_ground_transport' %}">Ground Transport</a>
+							</li>
+							<li class="current-menu-item">
+								<a href="{% url 'services_cargo' %}">Cargo</a>
+							</li>
+							<li>
+								<a href="{% url 'services_ware_housing' %}">Warehousing</a>
+							</li>
+							<li>
+								<a href="{% url 'services_logistic_service' %}">Logistic Service</a>
+							</li>
+							<li>
+								<a href="{% url 'services_truck_service' %}">Trucking Service</a>
+							</li>
+							<li>
+                <a href="{% url 'services_storage' %}">Storage</a>
+							</li>
+
+						</ul>
+					</div><!-- /.sidebar -->
+
+				</div><!-- /.col -->
+
+			</div><!-- /.row -->
+
+		</div><!-- /.container -->
+{% endblock %}
