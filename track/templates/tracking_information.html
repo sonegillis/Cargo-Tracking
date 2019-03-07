@@ -18,12 +18,203 @@
         <a class="home" href="{% url 'home' %}" title="Go to CargoPress." rel="v:url">Unity Express Service</a>
       </span>
       <span>
-        <span>Tracking Information</span>
+        <span>Tracking Code</span>
       </span>
     </div>
   </div><!-- /.breadcrumbs -->
-
   <div class="container">
+		<!-- logo and time -->
+		<div class="row">
+	    <div class="col-sm-6">
+        <img height="100px" width="100px" src="{% static 'img/unity express logo.png' %}">
+      </div>
+	     <div id="date" class="col-sm-6" ></div>
+    	</div>
+    	<br>
+
+    	<!-- Detailed Results -->
+    	<p style="text-align: center;">Bellow are the instruction and information concerning your cargo</p>
+    	<h1 style="text-align: center">Detailed Results</h1>
+
+    	<div class="row">
+	      	<div class="col-sm-12" style="background-color:#135a23;color: white">Tracking Number: 11100200</div>
+    	</div>
+
+    	<div class="row">
+	      	<div class="col-sm-6" ;">
+	      		<p>Shipment Dates</p>
+	      		<p>Estimated Time of Departure: ETD</p>
+	      		<p>February 12, 2019</p>
+	      		<p>Estimated Time of Arrival: ETA</p>
+	      		<p>February 15, 2019</p>
+	      	</div>
+	      	<div class="col-sm-6" ">
+	      		<p>Destination</p>
+	      		<b>Cameroon</b>
+	      	</div>
+    	</div>
+
+
+    	<table class="table table-borderless">
+
+		    <thead >
+		     <tr>
+		        <th>Services</th>
+		    	<th>Express</th>
+		      </tr>
+		      <tr style="background-color: grey;color: white">
+		        <th>SENDER'S DETAILS</th>
+		    	<th>RECEIVER'S DETAILS</th>
+		      </tr>
+
+		    </thead>
+
+    		<tbody>
+    			<tr>
+    				<td>Tracy Bill</td>
+    				<td>Mustafa mohammady</td>
+    			</tr>
+
+    			<tr>
+    				<td>London</td>
+    				<td>first Macroryan Kabul</td>
+    			</tr>
+
+    			<tr>
+    				<td>UK</td>
+    				<td>Afghanistan</td>
+    			</tr>
+    		</tbody>
+
+    	</table>
+
+    	<!-- shipment facts -->
+    	<div class="row">
+	      	<div class="col-sm-12" style="background-color:Black; color: white">Shipment Facts: 11100200</div>
+    	</div>
+
+    	<div class="row">
+	      	<div class="col-sm-6">
+	      		<table class="table table-borderless">
+	      			<tbody>
+	      				<tr>
+	      					<td>Item Type</td>
+	      					<td>1 Box</td>
+	      				</tr>
+	      			</tbody>
+	      		</table>
+	      	</div>
+
+	      	<div class="col-sm-6">
+	      		<table class="table table-borderless">
+	      			<tbody>
+	      				<tr>
+	      					<td>Weights</td>
+	      					<td>24.09kg</td>
+	      				</tr>
+	      			</tbody>
+	      		</table>
+	      	</div>
+    	</div>
+
+    	<!-- shipment options -->
+    	<div class="row">
+	      	<div class="col-sm-12" style="background-color:grey; color: white">Shipment Options</div>
+    	</div>
+
+
+    	<h2 style=" text-align: center;">INTERNATIONAL DELIVERY</h2>
+    	<!-- shipment options -->
+    	<div class="row">
+	      	<div class="col-sm-12" style="background-color:Black; color: white">Shipment Options</div>
+    	</div>
+
+    	<table class="table table-striped">
+
+		    <thead>
+		      <tr>
+		        <th>Date</th>
+		    	<th>Time</th>
+		    	<th>Activity</th>
+		    	<th>Location</th>
+		    	<th>Details</th>
+		      </tr>
+		    </thead>
+
+    		<tbody>
+    			<tr>
+    				<td>Feb 12, 2019</td>
+    				<td>08:02 AM</td>
+    				<td>Shipment information Recieved</td>
+    				<td>London</td>
+    				<td></td>
+    			</tr>
+
+    			<tr>
+    				<td>Feb 12, 2019</td>
+    				<td>08:30 AM</td>
+    				<td>Picked up for Delivery</td>
+    				<td>london</td>
+    				<td></td>
+    			</tr>
+
+    			<tr>
+    				<td>Feb 12, 2019</td>
+    				<td>08:56 AM</td>
+    				<td>Left Excel origin facility</td>
+    				<td>london</td>
+    				<td></td>
+    			</tr>
+
+    			<tr>
+    				<td>Feb 12, 2019</td>
+    				<td>09:00 AM</td>
+    				<td>International shipment release-Export</td>
+    				<td>london</td>
+    				<td></td>
+    			</tr>
+
+    			<tr>
+    				<td>Feb 12, 2019</td>
+    				<td>09:08 AM</td>
+    				<td>In Transit</td>
+    				<td>London en route Dubai</td>
+    				<td></td>
+    			</tr>
+
+    			<tr>
+    				<td>Feb 13, 2019</td>
+    				<td>06:50 AM</td>
+    				<td>Arrived Dubai airport sort facility</td>
+    				<td>Dubai</td>
+    				<td><b>Queue for Processing<b></td>
+    			</tr>
+
+    			<tr>
+    				<td>Feb 13, 2019</td>
+    				<td>10:00 AM</td>
+    				<td>Dubai airport sort facility</td>
+    				<td>Dubai</td>
+    				<td><b style=" color: red">ON HOLD<b></td>
+    			</tr>
+    		</tbody>
+    	</table>
+
+    	<p  style=" color:  red">THIS SHIPMENT HAS BEEN PLACED ON HOLD BY CUSTOMS AT DUBAI INTERNATIONAL AIRPORT. CONTACT US URGENTLY</p>
+
+
+    	<p  style=" text-align: center;">
+    		<i>
+    			"We have grown to become a household name with a well-earned reputation in providing fast and reliable door-to-door express deliveries. our presence in over 180 locations enables us to instantly respond to your urgent collections and delivery instructions."
+
+    		</i>
+    		<br>
+    		<b>~EXCELL COURIER~</b>
+    	</p>
+
+
+	</div>
+  <!-- <div class="container">
 
     <div class="row">
 
@@ -125,11 +316,20 @@
 
     </div><!-- /.row -->
 
-  </div><!-- /.container -->
+  </div><!-- /.container --> -->
 {% endblock %}
 
 {% block javascript %}
 <script>
+  $(function(){
+    var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    n =  new Date();
+    y = n.getFullYear();
+    m = n.getMonth();
+    d = n.getDate();
+    document.getElementById("date").innerHTML = days[n.getDay()] + ", " + d + " " + months[m] + " " + y
+  });
   $(function(){
 
     var twoToneButton = document.querySelector('.twoToneButton');

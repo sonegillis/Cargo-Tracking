@@ -39,7 +39,7 @@
 									<p class="p1">
 										<span class="s1">Starting from loading to unloading and maintaining the highest standards in terms of safety while in transit, we take nothing to chance.</span>
 									</p>
-									<a target="_self" href="about.html" class="btn btn-primary">READ MORE</a>
+									<a target="_self" href="{% url 'about' %}" class="btn btn-primary">READ MORE</a>
 									<div class="w69b-screencastify-mouse"></div>
 								</div>
 							</div>
@@ -56,7 +56,7 @@
 									<p class="p1">
 										<span class="s1">Starting from loading to unloading and maintaining the highest standards in terms of safety while in transit, we take nothing to chance.</span>
 									</p>
-									<a target="_self" href="about.html" class="btn btn-primary">READ MORE</a>
+									<a target="_self" href="{% url 'about' %}" class="btn btn-primary">READ MORE</a>
 									<div class="w69b-screencastify-mouse"></div>
 								</div>
 							</div>
@@ -73,7 +73,7 @@
 									<p class="p1">
 										<span class="s1">Starting from loading to unloading and maintaining the highest standards in terms of safety while in transit, we take nothing to chance.</span>
 									</p>
-									<a target="_self" href="about.html" class="btn btn-primary">MORE DETAILS</a>
+									<a target="_self" href="{% url 'about' %}" class="btn btn-primary">MORE DETAILS</a>
 									<div class="w69b-screencastify-mouse"></div>
 								</div>
 							</div>
@@ -121,54 +121,54 @@
 
 				<div class="col-sm-3">
 
-					<a href="cargo.html">
+					<a href="{% url 'services_cargo' %}">
 						<img alt="Cargo" class="post-image" sizes="(min-width: 781px) 360px, calc(100vw - 30px)" srcset="{% static 'img/smallpic1.jpeg' %} 360w, {% static 'img/placeholders/848x480.png' %} 848w" src="{% static 'img/smallpic1.jpeg' %}">
 					</a>
 
-					<h5 class="page-box__title"><a href="cargo.html">CARGO</a></h5>
+					<h5 class="page-box__title"><a href="{% url 'services_cargo' %}">CARGO</a></h5>
 
 					<p style="font-style: italic">
 						Team of cargo&nbsp;experts are always available to help you with any queries you might have, or if you want to consult in length your logistic requirements. We would study your requirements and provide you with a quote that would not only suit your …
 					</p>
 
 					<p style="font-style: italic">
-						<a class="read-more" href="cargo.html">Read more</a>
+						<a class="read-more" href="{% url 'services_cargo' %}">Read more</a>
 					</p>
 
 				</div><!-- /.col -->
 
 				<div class="col-sm-3">
 
-					<a href="logistic_service.html">
+					<a href="{% url 'services_logistic_service' %}">
 						<img alt="Logistic Service" class="post-image" sizes="(min-width: 781px) 360px, calc(100vw - 30px)" srcset="{% static 'img/smallpic2.jpg' %} 360w, {% static 'img/placeholders/848x480.png' %} 848w" src="{% static 'img/smallpic2.jpg' %}">
 					</a>
 
-					<h5 class="page-box__title"><a href="logistic_service.html">LOGISTIC SERVICE</a></h5>
+					<h5 class="page-box__title"><a href="{% url 'services_logistic_service' %}">LOGISTIC SERVICE</a></h5>
 
 					<p style="font-style: italic">
 						We provide logistic services in the nation, whether it is freight transportation, supply chain solutions, warehousing and distribution, customer resource area services, customs, security and insurance, temperature controlled logistics, industry …
 					</p>
 
 					<p style="font-style: italic">
-						<a class="read-more" href="https://demo.proteusthemes.com/cargopress/services/logistic-service/">Read more</a>
+						<a class="read-more" href="{% url 'services_logistic_service' %}">Read more</a>
 					</p>
 
 				</div><!-- /.col -->
 
 				<div class="col-sm-3">
 
-					<a href="storage.html">
+					<a href="{% url 'services_storage' %}">
 						<img alt="Storage" class="post-image" sizes="(min-width: 781px) 360px, calc(100vw - 30px)" srcset="{% static 'img/s3.jpg' %} 360w, {% static 'img/placeholders/848x480.png' %} 848w" src="{% static 'img/s3.jpg' %}">
 					</a>
 
-					<h5 class="page-box__title"><a href="storage.html">STORAGE</a></h5>
+					<h5 class="page-box__title"><a href="{% url 'services_storage' %}">STORAGE</a></h5>
 
 					<p style="font-style: italic">
 						We take pride in catering to a broad range of clientele throughout the country with our warehousing services, which is comprehensive, reliable and flexible &ndash; qualities that are essential to help businesses in this market. Our experienced experts …
 					</p>
 
 					<p style="font-style: italic">
-						<a class="read-more" href="storage.html">Read more</a>
+						<a class="read-more" href="{% url 'services_storage' %}">Read more</a>
 					</p>
 
 				</div><!-- /.col -->
@@ -267,7 +267,7 @@
 								Not sure which solution fits you business needs?
 							</div>
 							<div class="call-to-action__button">
-								<a target="_blank" href="contact.html" class="btn btn-info">CONTACT OUR SALES TEAM</a>
+								<a target="_blank" href="{% url 'contact' %}" class="btn btn-info">CONTACT OUR SALES TEAM</a>
 							</div>
 						</div><!-- /.call-to-action -->
 
@@ -289,7 +289,7 @@
 					<div class="col-sm-4 margin-bottom-30">
 
 						<div class="widget_pw_latest_news">
-							<a class="latest-news" href="article.html">
+							<a class="latest-news" href="{% url 'article' %}">
 								<div class="latest-news__date">
 									<div class="latest-news__date__month">May</div>
 									<div class="latest-news__date__day">6</div>
@@ -307,7 +307,7 @@
 					<div class="col-sm-4 margin-bottom-30">
 
 						<div class="widget_pw_latest_news">
-							<a class="latest-news" href="article.html">
+							<a class="latest-news" href="{% url 'article' %}">
 								<div class="latest-news__date">
 									<div class="latest-news__date__month">May</div>
 									<div class="latest-news__date__day">6</div>
@@ -403,7 +403,7 @@ We facilitate prompt reliable deliveries for all general, containerized, over-di
 					</p>
 					<p>We work as an extension of our customers business team ensuring peace of mind shipments arrive as expected.</p>
 					<p>
-						<a href="about.html" class="read-more">READ MORE</a>
+						<a href="{% url 'about' %}" class="read-more">READ MORE</a>
 					</p>
 
 				</div><!-- /.col -->
