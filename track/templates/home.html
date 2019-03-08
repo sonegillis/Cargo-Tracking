@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+Java object oriented programm{% extends 'base.html' %}
 {% load static from staticfiles %}
 {% block content %}
 		<!-- JUMBOTRON -->
@@ -343,7 +343,7 @@
 									<div class="latest-news__author">By Duncan Rhys</div>
 								</div>
 							</a>
-							<a class="latest-news  latest-news--more-news" href="https://demo.proteusthemes.com/cargopress/news/">
+							<a class="latest-news  latest-news--more-news" href="{% url 'newsfeed' %}">
 								More news
 							</a>
 						</div><!-- /.widget_pw_latest_news -->
