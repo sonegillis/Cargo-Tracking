@@ -18,7 +18,7 @@ from django.contrib import admin
 from track.views import (
                             home, services, ground_transport, cargo, ware_housing, logistic_service,
                             truck_service, storage, about, tracking, newsfeed, contact, article,
-                            tracking_information, tracking_not_found,
+                            tracking_information, tracking_not_found, sendMessage
                         )
 
 urlpatterns = [
@@ -38,4 +38,5 @@ urlpatterns = [
     url(r'^newsfeed/$', newsfeed, name='newsfeed'),
     url(r'^contact/$', contact, name='contact'),
     url(r'^article/$', article, name='article'),
+    url(r'^send-message/$', sendMessage, name="send_message"),
 ]

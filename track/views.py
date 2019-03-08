@@ -1,6 +1,7 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from .models import Package
 from django.core.urlresolvers import reverse
+import smtplib
 # Create your views here.
 
 def home(request):
@@ -81,3 +82,36 @@ def contact(request):
 def article(request):
     template_name = "article.html"
     return render(request, template_name, {'active': 'article'})
+
+def sendMessage(request):
+    destination_email = "sone_gillis@yahoo.com"
+    gmail_user = "ask.unityxpress@gmail.com"
+    gmail_password = "mesogek1995"
+
+    name = request.POST['name']
+    email = request.POST['email']
+    subject = request.POST['subject']
+    service = request.POST['service']
+    message = request.POST['message']
+
+    email_text = """
+        Name: %s
+        Email: %s
+        Subject: %s
+
+        Service: %s
+
+        Message: %s
+    """ % (name, email, subject, service, message)
+    if name and email and subject and service and message:
+        try:
+            server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+            server.ehlo()
+            server.login(gmail_user, gmail_password)
+            server.sendmail(gmail_user, destination_email, email_text)
+            server.close()
+            return HttpResponse("")
+        except:
+            return HttpResponse("", status=404)
+    else:
+        return HttpResponse("", status=404)

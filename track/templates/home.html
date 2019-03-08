@@ -1,4 +1,4 @@
-Java object oriented programm{% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load static from staticfiles %}
 {% block content %}
 		<!-- JUMBOTRON -->
@@ -427,12 +427,12 @@ We facilitate prompt reliable deliveries for all general, containerized, over-di
 								<div class="row">
 									<div class="col-xs-12  col-md-6">
 										<div class="form-group">
-											<input type="text" placeholder="First and Last Name *" aria-invalid="false" aria-required="true" size="40" value="" name="name" required>
+											<input id="name" type="text" placeholder="First and Last Name *" aria-invalid="false" aria-required="true" size="40" value="" name="name" required>
 										</div>
 										<div class="form-group">
-											<input type="email" placeholder="E-mail address" aria-invalid="false" aria-required="true" size="40" value="" name="email" required>
+											<input id="email" type="email" placeholder="E-mail address" aria-invalid="false" aria-required="true" size="40" value="" name="email" required>
 										</div>
-										<select aria-invalid="false" name="service">
+										<select id="service" aria-invalid="false" name="service">
 											<option value="Cargo">Cargo</option>
 											<option value="Ground Transport">Ground Transport</option>
 											<option value="Logistic Service">Logistic Service</option>
@@ -443,19 +443,19 @@ We facilitate prompt reliable deliveries for all general, containerized, over-di
 									</div>
 									<div class="col-xs-12  col-md-6">
 										<div class="form-group">
-											<input type="text" placeholder="Subject *" aria-invalid="false" aria-required="true" size="40" value="" name="subject" required>
+											<input id="subject" type="text" placeholder="Subject *" aria-invalid="false" aria-required="true" size="40" value="" name="subject" required>
 										</div>
 										<div class="form-group">
-											<textarea placeholder="Message *" aria-invalid="false" rows="10" cols="40" name="message" required></textarea>
+											<textarea id="message" placeholder="Message *" aria-invalid="false" rows="10" cols="40" name="message" required></textarea>
 										</div>
 									</div>
-									<div class="col-xs-12  col-md-12">
-										<input type="submit" class="btn btn-primary pull-right" value="SEND">
-										<img class="ajax-loader" id="loader" src="images/ajax-loader.gif" alt="Sending ..." style="display:none;">
+									{% csrf_token %}
+									<div id="send-button-div" class="col-xs-12  col-md-12">
+										<button type="button" onclick="sendMessage()" class="btn btn-primary pull-right">SEND</button>
 									</div>
 								</div><!-- /.row -->
-								<div class="response success">Your message was sent; we'll be in touch shortly!</div>
-								<div class="response error">Unfortunately, we could not sent your message right now. Please try again.</div>
+								<div style="display:none; color: green" id="response-success">Your message was sent; we'll be in touch shortly!</div>
+								<div style="display:none; color: red" id="response-error">Unfortunately, we could not sent your message right now. Ensure all fields are field and try again.</div>
 							</div><!-- /.contact-form-small -->
 						</form>
 
@@ -723,4 +723,54 @@ We facilitate prompt reliable deliveries for all general, containerized, over-di
 
 		</div><!-- /.counters -->
 
+{% endblock %}
+
+{% block javascript %}
+		<script>
+			function sendMessage() {
+				send_button_html = '<button type="button" onclick="sendMessage()" class="btn btn-primary pull-right">SEND</button>';
+				load_button_html = '<button type="button" onclick="sendMessage()" class="btn btn-primary pull-right"><i class="fa fa-spinner fa-spin"></i> SENDING</button>';
+				$("#send-button-div").html(load_button_html);
+
+				var name = $("#name").val();
+				var email = $("#email").val();
+				var subject = $("#subject").val();
+				var service = $("#service").val();
+				var message = $("#message").val();
+
+				$.ajax({
+						type : "POST",
+						url : "/send-message/",
+						data : {
+								'name' : name,
+								'email' : email,
+								'subject' : subject,
+								'service' : service,
+								'message' : message,
+								'csrfmiddlewaretoken' : "{{ csrf_token }}"
+						},
+						dataType : 'text',
+						success : function(response){
+								$('#send-button-div').html(send_button_html);
+								$("#response-success").show();
+								$("#response-error").hide();
+								emptyFields();
+						},
+						error: function(xhr, status, error){
+								$('#send-button-div').html(send_button_html);
+								$("#response-error").show();
+								$("#response-success").hide();
+						},
+						//Your code for AJAX Ends
+				});
+			}
+
+			function emptyFields() {
+					$("#name").val('');
+					$("#email").val('');
+					$("#subject").val('');
+					$("#service").val('');
+					$("#message").val('');
+			}
+		</script>
 {% endblock %}
