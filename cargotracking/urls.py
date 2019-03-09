@@ -40,3 +40,7 @@ urlpatterns = [
     url(r'^article/$', article, name='article'),
     url(r'^send-message/$', sendMessage, name="send_message"),
 ]
+
+admin.site.site_header = "Unity Express Service Admin"
+admin.site.site_title = "Unity Express Service Admin"
+admin.site.index_title = "Unity Express Service Admin"
