@@ -68,7 +68,7 @@ def tracking_not_found(request):
 def tracking_information(request, tracking_code):
     template_name = "tracking_information.html"
     package = Package.objects.filter(package_id=tracking_code)
-    return render(request, template_name, {'package': package[0], 'active': 'track', 'package': package[0]})
+    return render(request, template_name, {'package': package[0], 'active': 'track'})
 
 
 def newsfeed(request):

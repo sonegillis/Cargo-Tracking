@@ -18,7 +18,7 @@
         <a class="home" href="{% url 'home' %}" title="Go to CargoPress." rel="v:url">Unity Express Service</a>
       </span>
       <span>
-        <span>Tracking Code</span>
+        <span>Tracking Information</span>
       </span>
     </div>
   </div><!-- /.breadcrumbs -->
@@ -37,20 +37,20 @@
     	<h1 style="text-align: center">Detailed Results</h1>
 
     	<div class="row">
-	      	<div class="col-sm-12" style="background-color:#135a23;color: white">Tracking Number: 11100200</div>
+	      	<div class="col-sm-12" style="background-color:#135a23;color: white">Tracking Code: {{package.package_id}}</div>
     	</div>
 
     	<div class="row">
 	      	<div class="col-sm-6" ;">
 	      		<p>Shipment Dates</p>
 	      		<p>Estimated Time of Departure: ETD</p>
-	      		<p>February 12, 2019</p>
+	      		<p>{{package.estimated_time_of_departure}}</p>
 	      		<p>Estimated Time of Arrival: ETA</p>
-	      		<p>February 15, 2019</p>
+	      		<p>{{package.estimated_time_of_arrival}}</p>
 	      	</div>
 	      	<div class="col-sm-6" ">
 	      		<p>Destination</p>
-	      		<b>Cameroon</b>
+	      		<b>{{package.receivers_country}}</b>
 	      	</div>
     	</div>
 
@@ -71,18 +71,18 @@
 
     		<tbody>
     			<tr>
-    				<td>Tracy Bill</td>
-    				<td>Mustafa mohammady</td>
+    				<td>{{package.senders_name}}</td>
+    				<td>{{package.receivers_name}}</td>
     			</tr>
 
     			<tr>
-    				<td>London</td>
-    				<td>first Macroryan Kabul</td>
+    				<td>{{package.senders_city}}</td>
+    				<td>{{package.recievers_city}}</td>
     			</tr>
 
     			<tr>
-    				<td>UK</td>
-    				<td>Afghanistan</td>
+    				<td>{{package.senders_country}}</td>
+    				<td>{{package.receivers_country}}</td>
     			</tr>
     		</tbody>
 
@@ -90,7 +90,7 @@
 
     	<!-- shipment facts -->
     	<div class="row">
-	      	<div class="col-sm-12" style="background-color:Black; color: white">Shipment Facts: 11100200</div>
+	      	<div class="col-sm-12" style="background-color:Black; color: white">Shipment Facts: {{package.package_id}}</div>
     	</div>
 
     	<div class="row">
@@ -99,7 +99,7 @@
 	      			<tbody>
 	      				<tr>
 	      					<td>Item Type</td>
-	      					<td>1 Box</td>
+	      					<td>{{package.item_type}}</td>
 	      				</tr>
 	      			</tbody>
 	      		</table>
@@ -110,7 +110,7 @@
 	      			<tbody>
 	      				<tr>
 	      					<td>Weights</td>
-	      					<td>24.09kg</td>
+	      					<td>{{package.weight}}</td>
 	      				</tr>
 	      			</tbody>
 	      		</table>
