@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from track.views import (
                             home, services, ground_transport, cargo, ware_housing, logistic_service,
                             truck_service, storage, about, tracking, newsfeed, contact, article,
-                            tracking_information, tracking_not_found, sendMessage
+                            tracking_information, tracking_not_found, sendMessage, searchPackage,
+                            updatePackageDestination,
                         )
 
 urlpatterns = [
@@ -39,6 +41,9 @@ urlpatterns = [
     url(r'^contact/$', contact, name='contact'),
     url(r'^article/$', article, name='article'),
     url(r'^send-message/$', sendMessage, name="send_message"),
+    url(r'^search-package/$', searchPackage, name="search-package"),
+    url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
+    url(r'^update-package-destination/(?P<tracking_code>LC \d{2} \d{3} \d{3} UK)/$', updatePackageDestination, name="update_package_destination"),
 ]
 
 admin.site.site_header = "Unity Express Service Admin"

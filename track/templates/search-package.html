@@ -1,0 +1,54 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cargo System</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+</head>
+<body>
+
+	<div class="container">
+    <div>
+      <div class="form-group">
+        <label for="activity">Tracking Code</label>
+        <input type="text" class="form-control" id="tracking_code" name="tracking_code">
+      </div>
+      {% csrf_token %}
+      <button id="search" type="button" class="btn btn-primary">Search</button>
+    </div>
+	</div>
+
+	<footer style="text-align:  center; background-color: black; color: white">
+		 Copyright UNITY EXPRESS SERVICE 2012. All rights reserved.
+	</footer>
+
+  <script src="{% static 'js/jquery-2.1.4.min.js' %}" type="text/javascript"></script>
+
+  <script>
+    $(function(){
+      $("#search").on("click", function(){
+        $.ajax({
+            type : "POST",
+            url : window.location.href,
+            data : {
+                'tracking_code' : $("#tracking_code").val(),
+                'csrfmiddlewaretoken' : "{{ csrf_token }}"
+            },
+            dataType : 'text',
+            success : function(response){
+                window.location.href = "/update-package-destination/"+response+"/";
+            },
+            error: function(xhr, status, error){
+                alert("Tracking code those not exist");
+            },
+            //Your code for AJAX Ends
+        });
+      });
+    });
+  </script>
+</body>
+</html>

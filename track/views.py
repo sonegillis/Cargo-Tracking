@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
-from .models import Package
+from .models import Package, PackageInfo
+from django.db.models import Q
 from django.core.urlresolvers import reverse
 import smtplib
 # Create your views here.
@@ -68,7 +69,13 @@ def tracking_not_found(request):
 def tracking_information(request, tracking_code):
     template_name = "tracking_information.html"
     package = Package.objects.filter(package_id=tracking_code)
-    return render(request, template_name, {'package': package[0], 'active': 'track'})
+    package_info = PackageInfo.objects.filter(package=package)
+    package_on_hold = PackageInfo.objects.filter(Q(package=package) & Q(on_hold=True))
+    print(package_info)
+    if package_on_hold.exists():
+        package_on_hold = package_on_hold[0]
+
+    return render(request, template_name, {'package': package[0], 'active': 'track', 'package_info': package_info ,'package_on_hold': package_on_hold})
 
 
 def newsfeed(request):
@@ -82,6 +89,54 @@ def contact(request):
 def article(request):
     template_name = "article.html"
     return render(request, template_name, {'active': 'article'})
+
+def searchPackage(request):
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect(reverse('login'))
+    if request.method == "GET":
+        template_name = "search-package.html"
+        return render(request, template_name)
+    if request.method == "POST":
+        package_id = request.POST["tracking_code"]
+        print(request.POST)
+        qs = Package.objects.filter(package_id=package_id)
+        if qs.exists():
+            return HttpResponse(package_id)
+            return HttpResponseRedirect(reverse('update_package_destination', args=(package_id,)))
+        else:
+            return HttpResponse("", status=404)
+
+def updatePackageDestination(request, tracking_code):
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect(reverse('login'))
+    qs1 = Package.objects.filter(package_id=tracking_code)
+    if request.method == "GET":
+        template_name = "update-package-destination.html"
+        qs2 = PackageInfo.objects.filter(package=qs1[0])
+
+        return render(request, template_name, {'package': qs1[0], 'package_info': qs2})
+    if request.method == "POST":
+        date = request.POST["date"]
+        time = request.POST["time"]
+        activity = request.POST["activity"]
+        location = request.POST["location"]
+        details = request.POST["details"]
+        on_hold = request.POST.get("onhold", None)
+
+        if not on_hold:
+            on_hold = False
+        else:
+            on_hold = True
+        PackageInfo(
+            package = qs1[0],
+            date = date,
+            time = time,
+            activity = activity,
+            location = location,
+            details = details,
+            on_hold = on_hold
+        ).save()
+        return HttpResponseRedirect(reverse('update_package_destination', args=(tracking_code,)))
 
 def sendMessage(request):
     destination_email = "sone_gillis@yahoo.com"
