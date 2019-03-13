@@ -11,12 +11,14 @@ def generateTrackingCode():
     tracking_code += str(random.randint(100,999))
     tracking_code += " UK"
 
+    print(tracking_code)
+
     return tracking_code
 
 # Create your models here.
 
 class Package(models.Model):
-    package_id = models.CharField(max_length=30, primary_key=True, default=generateTrackingCode())
+    package_id = models.CharField(max_length=30, primary_key=True)
     package_name = models.CharField(max_length=500)
     estimated_time_of_departure = models.DateField(null=True)
     estimated_time_of_arrival = models.DateField(null=True)
@@ -31,7 +33,12 @@ class Package(models.Model):
     delivery_fee = models.BigIntegerField(default=3000)
 
     def __str__(self):
-        return self.package_id
+        return self.package_id + " (Receiver: " + self.receivers_name + " ,Sender: " + self.senders_name + ")"
+
+    def save(self):
+        if not self.package_id:
+            self.package_id = generateTrackingCode()
+        super(Package, self).save()
 
 class PackageInfo(models.Model):
     package = models.ForeignKey(Package)
