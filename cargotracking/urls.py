@@ -20,11 +20,11 @@ from track.views import (
                             home, services, ground_transport, cargo, ware_housing, logistic_service,
                             truck_service, storage, about, tracking, newsfeed, contact, article,
                             tracking_information, tracking_not_found, sendMessage, searchPackage,
-                            updatePackageDestination,
+                            updatePackageDestination, siteSuspended
                         )
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', siteSuspended),
     url(r'^$', home, name='home'),
     url(r'^services/$', services, name='services'),
     url(r'^services/ground-transport/$', ground_transport, name='services_ground_transport'),
@@ -44,6 +44,7 @@ urlpatterns = [
     url(r'^search-package/$', searchPackage, name="search-package"),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^update-package-destination/(?P<tracking_code>LC \d{2} \d{3} \d{3} UK)/$', updatePackageDestination, name="update_package_destination"),
+    url(r'^suspend/$', siteSuspended, name="site_suspended")
 ]
 
 admin.site.site_header = "Unity Express Service Admin"
