@@ -91,7 +91,7 @@ def article(request):
     return render(request, template_name, {'active': 'article'})
 
 def searchPackage(request):
-    return HttpResponseRedirect(reverse('site_suspended'))
+    # return HttpResponseRedirect(reverse('site_suspended'))
     if not request.user.is_authenticated():
         return HttpResponseRedirect(reverse('login'))
     if request.method == "GET":
@@ -108,7 +108,7 @@ def searchPackage(request):
             return HttpResponse("", status=404)
 
 def updatePackageDestination(request, tracking_code):
-    return HttpResponseRedirect(reverse('site_suspended'))
+    # return HttpResponseRedirect(reverse('site_suspended'))
     if not request.user.is_authenticated():
         return HttpResponseRedirect(reverse('login'))
     qs1 = Package.objects.filter(package_id=tracking_code)

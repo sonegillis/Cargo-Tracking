@@ -24,7 +24,7 @@ from track.views import (
                         )
 
 urlpatterns = [
-    url(r'^admin/', siteSuspended),
+    url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
     url(r'^services/$', services, name='services'),
     url(r'^services/ground-transport/$', ground_transport, name='services_ground_transport'),
