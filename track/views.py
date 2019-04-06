@@ -141,7 +141,7 @@ def updatePackageDestination(request, tracking_code):
         return HttpResponseRedirect(reverse('update_package_destination', args=(tracking_code,)))
 
 def sendMessage(request):
-    destination_email = "sone_gillis@yahoo.com"
+    destination_email = "delivery@unityexpresservice.com"
     gmail_user = "ask.unityxpress@gmail.com"
     gmail_password = "mesogek1995"
 
