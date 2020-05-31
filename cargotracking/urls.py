@@ -47,6 +47,6 @@ urlpatterns = [
     url(r'^suspend/$', siteSuspended, name="site_suspended")
 ]
 
-admin.site.site_header = "Unity Express Service Admin"
-admin.site.site_title = "Unity Express Service Admin"
-admin.site.index_title = "Unity Express Service Admin"
+admin.site.site_header = "Speedy Globe Courier Admin"
+admin.site.site_title = "Speedy Globe Courier Admin"
+admin.site.index_title = "Speedy Globe Courier Admin"
