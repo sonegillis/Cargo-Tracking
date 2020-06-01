@@ -36,14 +36,14 @@ urlpatterns = [
     url(r'^about/$', about, name='about'),
     url(r'^tracking/$', tracking, name='tracking'),
     url(r'^tracking/not-found/$', tracking_not_found, name='tracking_not_found'),
-    url(r'^tracking/(?P<tracking_code>LC \d{2} \d{3} \d{3} UK)/$', tracking_information, name='tracking_information'),
+    url(r'^tracking/(?P<tracking_code>LC \d{2} \d{3} \d{3} US)/$', tracking_information, name='tracking_information'),
     url(r'^newsfeed/$', newsfeed, name='newsfeed'),
     url(r'^contact/$', contact, name='contact'),
     url(r'^article/$', article, name='article'),
     url(r'^send-message/$', sendMessage, name="send_message"),
     url(r'^search-package/$', searchPackage, name="search-package"),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
-    url(r'^update-package-destination/(?P<tracking_code>LC \d{2} \d{3} \d{3} UK)/$', updatePackageDestination, name="update_package_destination"),
+    url(r'^update-package-destination/(?P<tracking_code>LC \d{2} \d{3} \d{3} US)/$', updatePackageDestination, name="update_package_destination"),
     url(r'^suspend/$', siteSuspended, name="site_suspended")
 ]
 

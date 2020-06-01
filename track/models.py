@@ -9,7 +9,7 @@ def generateTrackingCode():
     tracking_code += str(random.randint(100,999))
     tracking_code += " "
     tracking_code += str(random.randint(100,999))
-    tracking_code += " UK"
+    tracking_code += " US"
 
     print(tracking_code)
 
