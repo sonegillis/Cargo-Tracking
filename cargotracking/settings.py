@@ -80,12 +80,11 @@ DATABASES = {
     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'trackpackage',
-        'USER': 'django',
-        'PASSWORD': 'django',
-        'HOST': 'localhost',
-        'PORT':'5432',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sonegillis$speedycourier',
+        'USER': 'sonegillis',
+        'PASSWORD': 'mesogek1995',
+        'HOST':'sonegillis.mysql.pythonanywhere-services.com',
     },
 }
 

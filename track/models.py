@@ -2,14 +2,12 @@ from django.db import models
 import random
 
 
-def generateTrackingCode():
+def generate_tracking_code():
     tracking_code = "SK"
-
     tracking_code += str(random.randint(10, 99))
     tracking_code += str(random.randint(100, 999))
     tracking_code += str(random.randint(100, 999))
-
-    print(tracking_code)
+    tracking_code += " UK"
 
     return tracking_code
 
@@ -36,7 +34,7 @@ class Package(models.Model):
 
     def save(self):
         if not self.package_id:
-            self.package_id = generateTrackingCode()
+            self.package_id = generate_tracking_code()
         super(Package, self).save()
 
 
