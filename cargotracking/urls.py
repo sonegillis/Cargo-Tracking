@@ -17,10 +17,10 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from track.views import (
-                            home, services, ground_transport, cargo, ware_housing, logistic_service,
-                            truck_service, storage, about, tracking, newsfeed, contact, article,
-                            tracking_information, tracking_not_found, sendMessage, searchPackage,
-                            updatePackageDestination, siteSuspended
+    home, services, ground_transport, cargo, ware_housing, logistic_service,
+    truck_service, storage, about, tracking, newsfeed, contact, article,
+    tracking_information, tracking_not_found, send_message, search_package,
+    update_package_destination, site_suspended, receipt
                         )
 
 urlpatterns = [
@@ -36,15 +36,16 @@ urlpatterns = [
     url(r'^about/$', about, name='about'),
     url(r'^tracking/$', tracking, name='tracking'),
     url(r'^tracking/not-found/$', tracking_not_found, name='tracking_not_found'),
-    url(r'^tracking/(?P<tracking_code>LC \d{2} \d{3} \d{3} UK)/$', tracking_information, name='tracking_information'),
+    url(r'^tracking/(?P<tracking_code>SK\d{2}\d{3}\d{3}UK)/$', tracking_information, name='tracking_information'),
     url(r'^newsfeed/$', newsfeed, name='newsfeed'),
     url(r'^contact/$', contact, name='contact'),
     url(r'^article/$', article, name='article'),
-    url(r'^send-message/$', sendMessage, name="send_message"),
-    url(r'^search-package/$', searchPackage, name="search-package"),
+    url(r'^send-message/$', send_message, name="send_message"),
+    url(r'^search-package/$', search_package, name="search-package"),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
-    url(r'^update-package-destination/(?P<tracking_code>LC \d{2} \d{3} \d{3} UK)/$', updatePackageDestination, name="update_package_destination"),
-    url(r'^suspend/$', siteSuspended, name="site_suspended")
+    url(r'^update-package-destination/(?P<tracking_code>SK\d{2}\d{3}\d{3}UK)/$', update_package_destination, name="update_package_destination"),
+    url(r'^suspend/$', site_suspended, name="site_suspended"),
+    url(r'^receipt/$', receipt, name="receipt")
 ]
 
 admin.site.site_header = "Speedy Globe Courier Admin"
