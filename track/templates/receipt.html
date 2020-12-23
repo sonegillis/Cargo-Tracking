@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
   <title>Receipt</title>
 </head>
 <body>
-    <div style="width: 90%;" class="border">
+    <div style="width: 98%;" class="border">
         <div class="left border">
             <div style="min-height: 120px" class="d-flex">
                 <div class="image">
@@ -49,9 +50,35 @@
                         Tel: <i>+1 931-622-6218</i>
                     </p>
                     <p class="input_heading">3. REQUIRED SIGNATURES</p>
+                    <div class="border-red d-flex flex-column justify-content-center"
+                         style="height: 150px; padding-left: 24px">
+                        <div class="signature">
+                            <img width="100" height="50" src="{% static 'img/signature.png' %}" alt="signature" />
+                        </div>
+                        <p>Sender's Signature</p>
+                    </div>
                 </div>
                 <div class="w-50 border">
-
+                    <p class="input_heading">4. SHIPMENT DETAILS
+                        <small>(All payment and services are available in specific countries.)</small></p>
+                    <div class="d-flex">
+                        <div class="w-50 border" style="padding: 12px;">
+                            <p style="font-size: 1.1em; font-weight: bold">Services</p>
+                            <p><input type="checkbox" /> DIPLOMAT DOCUMENT</p>
+                            <p><input type="checkbox" /> WORLD WIDE DIPLOMATIC PACKAGE</p>
+                            <p><input type="checkbox" /> DEMS TO PACKAGE</p>
+                            <p><input type="checkbox" /> WORLD MILL</p>
+                            <p><input type="checkbox" /> OTHER SERVICEs</p>
+                        </div>
+                        <div class="w-50 border" style="padding: 24px 12px;">
+                            <p><input type="checkbox" /> RECEIVER</p>
+                            <p><input type="checkbox" /> CASH/CHEQUE </p>
+                            <ps><input type="checkbox" /> CREDIT CARD </ps>
+                            <p><input type="checkbox" /> FORMAT BILLING AGREEMENT</p>
+                        </div>
+                    </div>
+                    <p class="outline_heading border" style="text-align: center; font-weight: bold">SHIPMENT INSURANCE</p>
+                    <p class="input_heading">5. FROM (SENDER)</p>
                 </div>
             </div>
         </div>
@@ -62,8 +89,32 @@
     </div>
 </body>
 <style>
+    p {
+        font-size: 0.85em;
+    }
+    .outline_heading {
+        height: 30px;
+        line-height: 30px;
+        padding-left: 4px;
+    }
+    .signature {
+        border-bottom: 1px solid black;
+        width: 150px;
+    }
     .border-red {
         border: 1px solid darkred;
+    }
+    .d-flex {
+        display: flex;
+    }
+    .align-items-center {
+        align-items: center;
+    }
+    .justify-content-center {
+        justify-content: center;
+    }
+    .flex-column {
+        flex-direction: column;
     }
     .input {
         font-size: 0.8em;

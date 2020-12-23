@@ -1,9 +1,11 @@
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
+from django.urls import reverse
+
 from .models import Package, PackageInfo
 from django.db.models import Q
-from django.core.urlresolvers import reverse
 import smtplib
 # Create your views here.
+
 
 def home(request):
     template_name = "home.html"

@@ -39,7 +39,7 @@ class Package(models.Model):
 
 
 class PackageInfo(models.Model):
-    package = models.ForeignKey(Package)
+    package = models.ForeignKey(Package, on_delete=models.CASCADE)
     date = models.DateField()
     time = models.TimeField()
     activity = models.CharField(max_length=100)
