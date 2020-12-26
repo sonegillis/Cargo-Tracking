@@ -7,7 +7,7 @@ def generate_tracking_code():
     tracking_code += str(random.randint(10, 99))
     tracking_code += str(random.randint(100, 999))
     tracking_code += str(random.randint(100, 999))
-    tracking_code += " UK"
+    tracking_code += "UK"
 
     return tracking_code
 
@@ -20,9 +20,11 @@ class Package(models.Model):
     estimated_time_of_departure = models.DateField(null=True)
     estimated_time_of_arrival = models.DateField(null=True)
     senders_name = models.CharField(max_length=300)
+    senders_tel = models.CharField(max_length=15)
     senders_country = models.CharField(max_length=100)
     senders_address = models.CharField(max_length=100)
     receivers_name = models.CharField(max_length=300)
+    receivers_tel = models.CharField(max_length=15)
     receivers_country = models.CharField(max_length=100)
     recievers_address = models.CharField(max_length=100)
     item_type = models.CharField(max_length=50)

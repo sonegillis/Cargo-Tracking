@@ -81,7 +81,7 @@
         </p>
 
         <form method="POST" action="" class="trackForm clearfix">
-          <input type="text" name="tracking_code" placeholder="LC ** *** *** US" id="name">
+          <input type="text" name="tracking_code" placeholder="SK********UK" id="name">
           {% csrf_token %}
           <button type="submit" class="btn btn-info twoToneButton">Track</button>
         </form>
@@ -98,7 +98,7 @@
       <div style="border: 1px red solid;" class="col-sm-8 col-sm-offset-2 margin-bottom-60">
         <p>Invalid Tracking Code. Maybe caused by the following Reasons</p>
         <ul>
-          <li>Tracking code does not follow format >>LC ** *** *** UK<< </li>
+          <li>Tracking code does not follow format >>SK********UK<< </li>
           <li>Package information has not been entered into the system yet</li>
         </ul>
       </div>
