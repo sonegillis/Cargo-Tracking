@@ -6,21 +6,22 @@
   <title>Receipt</title>
 </head>
 <body>
-    <div style="width: 98%;" class="border">
+    <div style="width: 98%;" class="border d-flex">
         <div class="left border">
             <div style="min-height: 120px" class="d-flex">
                 <div class="image">
+                    <img width="180" height="120" src="{% static 'img/truck.jpg' %}" />
                 </div>
-                <div class="w-100">
+                <div class="w-100" style="padding: 0 12px">
                     <h3 class="primary-color" style="padding-left: 20px">Speedy Globe Courier</h3>
                     <div class="d-flex justify-content-between">
                         <div>
-                            <p>26 belgrave Square, knights bridge Scotland, United Kingdom</p>
-                            <p>Tel +441163261175</p>
+                            <p>146 Peel Avenue Manchester, M17 8BL London,United Kingdom</p>
+                            <p>Tel +44 7440 230888</p>
                             <p>www.speedyglobecourier.com</p>
                         </div>
                         <div>
-                            <p>NO. 319312</p>
+                            <p style="font-size: 1.3em;">NO. 319312</p>
                             <p class="primary-color">Airway Bill</p>
                         </div>
                     </div>
@@ -30,27 +31,27 @@
                 <div class="w-50 border">
                     <p class="input_heading">1. FROM (SENDER)</p>
                     <p class="input border-red">
-                        Sender's name: <i>John Peter</i>
+                        Sender's name: <i></i>
                     </p>
                     <p class="input border-red">
-                        Address: <i>England Brighton, United Kingdom</i>
+                        Address: <i></i>
                     </p>
                     <p class="input border-red">
-                        Phone number: <i>+1 669-259-3919</i>
+                        Phone number: <i></i>
                     </p>
 
                     <p class="input_heading">2. TO (RECEIVER)</p>
                     <p class="input border-red">
-                        Receiver's name: <i>Mr. Ijaz Ulhaq</i>
+                        Receiver's name: <i></i>
                     </p>
                     <p class="input border-red">
-                        Address: <i>Provence kpk dir lower City balambat timergara Pakistan</i>
+                        Address: <i></i>
                     </p>
                     <p class="input border-red">
-                        Tel: <i>+1 931-622-6218</i>
+                        Tel: <i></i>
                     </p>
                     <p class="input_heading">3. REQUIRED SIGNATURES</p>
-                    <div class="border-red d-flex flex-column justify-content-center"
+                    <div class="d-flex flex-column justify-content-center"
                          style="height: 150px; padding-left: 24px">
                         <div class="signature">
                             <img width="100" height="50" src="{% static 'img/signature.png' %}" alt="signature" />
@@ -79,18 +80,116 @@
                     </div>
                     <p class="outline_heading border" style="text-align: center; font-weight: bold">SHIPMENT INSURANCE</p>
                     <p class="input_heading">5. FROM (SENDER)</p>
+                    <div class="d-flex">
+                        <div class="border input w-50">
+                            <div class="d-flex justify-content-between input" style="padding: 0 24px; box-sizing: border-box">
+                                <p class="input">Yes <input type="checkbox" /></p>
+                                <p class="input">No <input type="checkbox" /></p>
+                            </div>
+                            <div class="input border w-100"></div>
+                        </div>
+                        <div class="w-100">
+                            <p class="input border">
+                                <span class="padding-left padding-top">Sender's VAT GMT</span>
+                            </p>
+                            <p class="input border">
+                                <span class="padding-left padding-top">Receiver's VAT GMT</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="input border w-100">
+                        <p>Type of export <input type="checkbox" /></p>
+                    </div>
+                    <div style="position: relative">
+                        <div style="padding-left: 12px; padding-top: 12px">
+                            <p>Destination duties</p>
+                            <p><input type="checkbox" />Receiver</p>
+                        </div>
+                        <p style="text-align: center">Quote this shipment number at enquiry</p>
+                        <div style="margin: 0 auto; width: 400px; position: relative">
+                            <img style="margin: 0 auto" width="400" height="80" src="{% static 'img/barcode.png' %}" />
+                            <p class="m-0 p-0"
+                               style="position: absolute; font-weight: bold; top: 40%; left: 40%; background: #000; color: #fff">555-5323-882</p>
+                        </div>
+                        <h4 style="margin: 0; padding: 0">
+                            TRACKING NUMBER: </h4>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="right">
-
-    </div>
+        <div class="border right">
+            <div class="d-flex">
+                <h2 class="input border-red font-weight-bold w-50 m-0 p-0 text-center">ORIGIN</h2>
+                <h2 class="input border-red font-weight-bold w-50 m-0 p-0 text-center">DESTINATION</h2>
+            </div>
+            <div class="d-flex">
+                <h4 class="input border-red font-weight-bold w-50 m-0 p-0 text-center"></h4>
+                <h4 class="input border-red font-weight-bold w-50 m-0 p-0 text-center"></h4>
+            </div>
+            <p class="input_heading">6. SIZE AND WEIGHT</p>
+            <div class="d-flex">
+                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center">NO OF PIECES</p>
+                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center">WEIGHT</p>
+            </div>
+            <p class="border-red">X-RAY SCAN REQUEST, NON-HARMFUL CONTENT (NEGATIVE)</p>
+            <div class="d-flex">
+                <p class="input border-red font-weight-bold w-50 m-0 p-0">DESCRIPTION OF CONTENT:</p>
+                <p class="border-red font-weight-bold w-50 m-0 p-0 text-center"></p>
+            </div>
+            <p class="border-red font-weight-bold">VOLUME TRAIC/CHARGE WEIGHT</p>
+            <div class="border-red d-flex" style="align-items: center; justify-content: space-between; height: 40px">
+                <p class="m-0 p-0" style="font-size: 0.7em;">CODES</p>
+                <p class="m-0 p-0" style="font-size: 0.7em;">CLEARING CHARGES SERVICE</p>
+            </div>
+            <div class="d-flex">
+                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center" style="background: red; color: #fff">
+                    SHIPMENT CHARGES</p>
+                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center"></p>
+            </div>
+            <div class="d-flex">
+                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center" style="background: red; color: #fff">
+                    CLEARANCE CHARGE TO BE PAID LOCALLY</p>
+                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center"></p>
+            </div>
+            <div class="d-flex">
+                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center">DEPT. DATE</p>
+                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center"></p>
+            </div>
+            <div class="d-flex">
+                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center">ARRIVAL DATE</p>
+                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center"></p>
+            </div>
+            <div class="d-flex">
+                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center"></p>
+                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center"></p>
+            </div>
+            <div class="d-flex border-red" style="align-items: center; justify-content: center; height: 40px">
+                <p class="font-weight-bold">PACKED BY:</p>
+            </div>
+            <div style="height: 146px; align-items: center; justify-content: center" class="border-red d-flex">
+                <p style="background: #000; width: 60%; height: 4px;"></p>
+            </div>
+        </div>
     </div>
 </body>
 <style>
-    p {
+    .text-center {
+        text-align: center;
+    }
+    .font-weight-bold {
+        font-weight: bold;
+    }
+    p, p * {
         font-size: 0.85em;
+    }
+    .m-0 {
+        margin: 0
+    }
+    .p-0 {
+        padding: 0;
+    }
+    .w-100 {
+        width: 100%;
     }
     .outline_heading {
         height: 30px;
@@ -118,7 +217,13 @@
     }
     .input {
         font-size: 0.8em;
-        min-height: 40px;
+        min-height: 30px;
+    }
+    .padding-left {
+        padding-left: 4px;
+    }
+    .padding-top {
+        padding-top: 4px;
     }
     .input i {
         font-size: 1.5em;
@@ -127,8 +232,8 @@
         padding-top: 8px;
     }
     .input_heading {
-        height: 30px;
-        line-height: 30px;
+        height: 25px;
+        line-height: 25px;
         background-color: #8191d3;
         color: #fff;
         padding-left: 4px;
@@ -147,15 +252,17 @@
         padding: 0;
     }
     .image {
-        width: 120px;
+        width: 180px;
         height: 120px;
-        background: #ff4b13;
     }
     .d-flex {
         display: flex;
     }
     .left {
         width: 80%;
+    }
+    .right {
+        width: 20%;
     }
     .justify-content-between {
         justify-content: space-between;
