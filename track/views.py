@@ -58,7 +58,9 @@ def tracking(request):
         return render(request, template_name, {'invalid_tracking_code': False, 'active': 'track'})
     if request.method == "POST":
         tracking_code = request.POST["tracking_code"]
+        print("Tracking code is ", tracking_code, "****")
         package = Package.objects.filter(package_id=tracking_code)
+        print("Package is ", package)
         if package.exists():
             return HttpResponseRedirect(reverse('tracking_information', args=(tracking_code,)))
         else:
