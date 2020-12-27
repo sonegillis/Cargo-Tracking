@@ -28,6 +28,7 @@ class Package(models.Model):
     receivers_country = models.CharField(max_length=100)
     recievers_address = models.CharField(max_length=100)
     item_type = models.CharField(max_length=50)
+    items = models.TextField(blank=True, default="")
     weight = models.CharField(max_length=30)
     delivery_fee = models.BigIntegerField(default=3000)
 

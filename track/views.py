@@ -1,4 +1,8 @@
+from io import BytesIO
+
+import pisa as pisa
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
+from django.template.loader import get_template
 from django.urls import reverse
 
 from .models import Package, PackageInfo
@@ -71,7 +75,6 @@ def tracking_not_found(request):
         return render(request, template_name, {'invalid_tracking_code': True, 'active': 'track'})
     if request.method == "POST":
         tracking_code = request.POST["tracking_code"]
-        print(tracking_code)
         package = Package.objects.filter(package_id=tracking_code)
         if package.exists():
             return HttpResponseRedirect(reverse('tracking_information', args=(tracking_code,)))
@@ -159,8 +162,8 @@ def update_package_destination(request, tracking_code):
 
 
 def send_message(request):
-    destination_email = "delivery@unityexpresservice.com"
-    gmail_user = "ask.unityxpress@gmail.com"
+    destination_email = "delivery@speedyglobecourier.com"
+    gmail_user = "ask.speedyglobecourier@gmail.com"
     gmail_password = "mesogek1995"
 
     name = request.POST['name']
@@ -199,4 +202,16 @@ def site_suspended(request):
 
 def receipt(request):
     template_name = "receipt.html"
-    return render(request, template_name)
+    package_id = request.GET["package_id"]
+    package = Package.objects.get(package_id=package_id)
+    render_to_pdf(template_name, {"package": package})
+
+
+def render_to_pdf(template_src, context_dict={}):
+    template = get_template(template_src)
+    html = template.render(context_dict)
+    result = BytesIO()
+    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
+    return None
