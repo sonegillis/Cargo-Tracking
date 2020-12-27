@@ -1,6 +1,6 @@
 from io import BytesIO
+from xhtml2pdf import pisa
 
-import pisa as pisa
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django.template.loader import get_template
 from django.urls import reverse
