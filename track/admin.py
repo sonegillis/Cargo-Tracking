@@ -10,6 +10,5 @@ from .models import Package
 class PackageAdmin(admin.ModelAdmin):
     readonly_fields = ["package_id"]
     formfield_overrides = {
-        models.CharField: {'widget': TextInput(attrs={'size': '500'})},
-        models.TextField: {'widget': Textarea(attrs={'rows': 4, 'cols': 40})},
+        models.TextField: {'widget': Textarea(attrs={'rows': 8, 'cols': 80})},
     }
