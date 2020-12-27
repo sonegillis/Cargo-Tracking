@@ -72,17 +72,17 @@
                     <div class="d-flex">
                         <div class="w-50 border" style="padding: 12px;">
                             <p style="font-size: 1.1em; font-weight: bold">Services</p>
-                            <p><input type="checkbox" /> DIPLOMAT DOCUMENT</p>
-                            <p><input type="checkbox" /> WORLD WIDE DIPLOMATIC PACKAGE</p>
-                            <p><input type="checkbox" /> DEMS TO PACKAGE</p>
-                            <p><input type="checkbox" /> WORLD MILL</p>
-                            <p><input type="checkbox" /> OTHER SERVICEs</p>
+                            <p><input disabled type="checkbox" /> DIPLOMAT DOCUMENT</p>
+                            <p><input disabled type="checkbox" /> WORLD WIDE DIPLOMATIC PACKAGE</p>
+                            <p><input disabled type="checkbox" /> DEMS TO PACKAGE</p>
+                            <p><input disabled type="checkbox" /> WORLD MILL</p>
+                            <p><input disabled type="checkbox" /> OTHER SERVICEs</p>
                         </div>
                         <div class="w-50 border" style="padding: 24px 12px;">
-                            <p><input type="checkbox" /> RECEIVER</p>
-                            <p><input type="checkbox" /> CASH/CHEQUE </p>
-                            <ps><input type="checkbox" /> CREDIT CARD </ps>
-                            <p><input type="checkbox" /> FORMAT BILLING AGREEMENT</p>
+                            <p><input disabled type="checkbox" /> RECEIVER</p>
+                            <p><input disabled type="checkbox" /> CASH/CHEQUE </p>
+                            <ps><input disabled type="checkbox" /> CREDIT CARD </ps>
+                            <p><input disabled type="checkbox" /> FORMAT BILLING AGREEMENT</p>
                         </div>
                     </div>
                     <p class="outline_heading border" style="text-align: center; font-weight: bold">SHIPMENT INSURANCE</p>
@@ -90,8 +90,8 @@
                     <div class="d-flex">
                         <div class="border input w-50">
                             <div class="d-flex justify-content-between input" style="padding: 0 24px; box-sizing: border-box">
-                                <p class="input">Yes <input type="checkbox" /></p>
-                                <p class="input">No <input type="checkbox" /></p>
+                                <p class="input">Yes <input disabled type="checkbox" /></p>
+                                <p class="input">No <input disabled type="checkbox" /></p>
                             </div>
                             <div class="input border w-100"></div>
                         </div>
@@ -105,12 +105,12 @@
                         </div>
                     </div>
                     <div class="input border w-100">
-                        <p>Type of export <input type="checkbox" /></p>
+                        <p>Type of export <input disabled type="checkbox" /></p>
                     </div>
                     <div style="position: relative">
                         <div style="padding-left: 12px; padding-top: 12px">
                             <p>Destination duties</p>
-                            <p><input type="checkbox" />Receiver</p>
+                            <p><input disabled type="checkbox" />Receiver</p>
                         </div>
                         <p style="text-align: center">Quote this shipment number at enquiry</p>
                         <div style="margin: 0 auto; width: 400px; position: relative">
@@ -135,13 +135,19 @@
             </div>
             <p class="input_heading">6. SIZE AND WEIGHT</p>
             <div class="d-flex">
-                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center">NO OF PIECES</p>
-                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center">WEIGHT</p>
+                <div class="input border-red font-weight-bold w-50 m-0 p-0 text-center">
+                    <p>NO OF PIECES</p>
+                    <i>{{ package.item_type }}</i>
+                </div>
+                <div class="input border-red font-weight-bold w-50 m-0 p-0 text-center">
+                    <p>WEIGHT</p>
+                    <p><i>{{ package.weight }}</i></p>
+                </div>
             </div>
             <p class="border-red">X-RAY SCAN REQUEST, NON-HARMFUL CONTENT (NEGATIVE)</p>
             <div class="d-flex">
                 <p class="input border-red font-weight-bold w-50 m-0 p-0">DESCRIPTION OF CONTENT:</p>
-                <p class="border-red font-weight-bold w-50 m-0 p-0 text-center"></p>
+                <p class="border-red font-weight-bold w-50 m-0 p-0 text-center"><i>{{ package.item_type }}</i></p>
             </div>
             <p class="border-red font-weight-bold">VOLUME TRAIC/CHARGE WEIGHT</p>
             <div class="border-red d-flex" style="align-items: center; justify-content: space-between; height: 40px">
@@ -151,7 +157,9 @@
             <div class="d-flex">
                 <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center" style="background: red; color: #fff">
                     SHIPMENT CHARGES</p>
-                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center"></p>
+                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center">
+                    <i>${{ package.delivery_fee }}</i>
+                </p>
             </div>
             <div class="d-flex">
                 <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center" style="background: red; color: #fff">
@@ -160,11 +168,14 @@
             </div>
             <div class="d-flex">
                 <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center">DEPT. DATE</p>
-                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center"></p>
+                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center">
+                    <i>{{ package.estimated_time_of_departure }}</i>
+                </p>
             </div>
             <div class="d-flex">
                 <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center">ARRIVAL DATE</p>
-                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center"></p>
+                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center">
+                    <i>{{ package.estimated_time_of_arrival }}</i></p>
             </div>
             <div class="d-flex">
                 <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center"></p>
@@ -173,12 +184,14 @@
             <div class="d-flex border-red" style="align-items: center; justify-content: center; height: 40px">
                 <p class="font-weight-bold">PACKED BY:</p>
             </div>
-            <div style="height: 146px; align-items: center; justify-content: center" class="border-red d-flex">
+            <div style="height: 146px; align-items: center; justify-content: center; flex-direction: column" class="border-red d-flex">
+                <img width="100" height="40" src="{% static 'img/receipt-2.png' %}"/>
                 <p style="background: #000; width: 60%; height: 4px;"></p>
+                <p><i>Harry Smith</i></p>
             </div>
         </div>
     </div>
-    <p class="font-weight-bold" style="padding-bottom: 40px;">ITEMS: </p>
+    <p class="font-weight-bold" style="padding-bottom: 40px;">ITEMS: <i>{{ package.items }}</i></p>
 </body>
 <style>
     .text-center {

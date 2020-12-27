@@ -1,7 +1,7 @@
 from io import BytesIO
 from xhtml2pdf import pisa
 
-from django.shortcuts import render, HttpResponseRedirect, HttpResponse
+from django.shortcuts import render, HttpResponseRedirect, HttpResponse, get_object_or_404
 from django.template.loader import get_template
 from django.urls import reverse
 
@@ -84,14 +84,17 @@ def tracking_not_found(request):
 
 def tracking_information(request, tracking_code):
     template_name = "tracking_information.html"
-    package = Package.objects.filter(package_id=tracking_code)
-    package_info = PackageInfo.objects.filter(package=package)
-    package_on_hold = PackageInfo.objects.filter(Q(package=package) & Q(on_hold=True))
-    print(package_info)
-    if package_on_hold.exists():
-        package_on_hold = package_on_hold[0]
+    package = get_object_or_404(Package, pk=tracking_code)
+    try:
+        package_info = PackageInfo.objects.get(package=package)
+        package_on_hold = PackageInfo.objects.get(Q(package=package) & Q(on_hold=True))
+    except PackageInfo.DoesNotExist:
+        package_info = None
+        package_on_hold = None
 
-    return render(request, template_name, {'package': package[0], 'active': 'track', 'package_info': package_info ,'package_on_hold': package_on_hold})
+    return render(request, template_name,
+                  {'package': package, 'active': 'track',
+                   'package_info': package_info, 'package_on_hold': package_on_hold})
 
 
 def newsfeed(request):
@@ -200,11 +203,18 @@ def site_suspended(request):
     return render(request, template_name)
 
 
-def receipt(request):
+def receipt(request, package_id):
     template_name = "receipt.html"
-    package_id = request.GET["package_id"]
     package = Package.objects.get(package_id=package_id)
-    render_to_pdf(template_name, {"package": package})
+    return render(request, template_name, {"package": package})
+
+
+def render_to_image(template_src, context_dict={}):
+    import imgkit
+    template = get_template(template_src)
+    html = template.render(context_dict)
+    image = imgkit.from_string(html, False)
+    return HttpResponse(image, content_type='application/jpg')
 
 
 def render_to_pdf(template_src, context_dict={}):
@@ -212,6 +222,6 @@ def render_to_pdf(template_src, context_dict={}):
     html = template.render(context_dict)
     result = BytesIO()
     pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
-    if not pdf.err:
+    if pdf.err == 0:
         return HttpResponse(result.getvalue(), content_type='application/pdf')
     return None

@@ -45,7 +45,7 @@ urlpatterns = [
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^update-package-destination/(?P<tracking_code>SK\d{2}\d{3}\d{3}UK)/$', update_package_destination, name="update_package_destination"),
     url(r'^suspend/$', site_suspended, name="site_suspended"),
-    url(r'^receipt/$', receipt, name="receipt")
+    url(r'^receipt/(?P<package_id>\w+)/$', receipt, name="receipt"),
 ]
 
 admin.site.site_header = "Speedy Globe Courier Admin"
