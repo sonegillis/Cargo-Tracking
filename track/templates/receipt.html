@@ -6,6 +6,12 @@
   <title>Receipt</title>
 </head>
 <body>
+    <style>
+        @font-face {
+            font-family: kristi;
+            src: url('{% static 'fonts/Kristi-Regular.ttf' %}');
+        }
+    </style>
     <div style="width: 98%;" class="border d-flex">
         <div class="left border">
             <div style="min-height: 120px" class="d-flex">
@@ -64,7 +70,6 @@
                             <img width="100" height="50" src="{% static 'img/signature.png' %}" alt="signature" />
                         </div>
                         <p>Sender's Signature</p>
-                        <img width="150" height="150" style="position: absolute; top: 10%; left: 60%" src="{% static 'img/stamp-transparent.png' %}" alt="transparent background" />
 
                     </div>
                 </div>
@@ -121,7 +126,8 @@
                                style="position: absolute; font-weight: bold; top: 40%; left: 40%; background: #000; color: #fff">555-5323-882</p>
                         </div>
                         <h4 style="margin: 0; padding: 0">
-                            TRACKING NUMBER: <i>{{ package.package_id }}</i></h4>
+                            TRACKING NUMBER: {{ package.package_id }}</h4>
+                        <img width="150" height="150" style="position: absolute; top: 5%; left: 60%" src="{% static 'img/stamp-transparent.png' %}" alt="transparent background" />
                     </div>
                 </div>
             </div>
@@ -132,8 +138,12 @@
                 <h2 class="input border-red font-weight-bold w-50 m-0 p-0 text-center">DESTINATION</h2>
             </div>
             <div class="d-flex">
-                <h4 class="input border-red font-weight-bold w-50 m-0 p-0 text-center"></h4>
-                <h4 class="input border-red font-weight-bold w-50 m-0 p-0 text-center"></h4>
+                <h4 class="input border-red font-weight-bold w-50 m-0 p-0 text-center">
+                    <i>{{ package.senders_country }}</i>
+                </h4>
+                <h4 class="input border-red font-weight-bold w-50 m-0 p-0 text-center">
+                    <i>{{ package.receivers_country }}</i>
+                </h4>
             </div>
             <p class="input_heading">6. SIZE AND WEIGHT</p>
             <div class="d-flex">
@@ -160,13 +170,13 @@
                 <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center" style="background: red; color: #fff">
                     SHIPMENT CHARGES</p>
                 <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center">
-                    <i>${{ package.delivery_fee }}</i>
+                    <i>PAID</i>
                 </p>
             </div>
             <div class="d-flex">
                 <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center" style="background: red; color: #fff">
                     CLEARANCE CHARGE TO BE PAID LOCALLY</p>
-                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center"></p>
+                <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center"><i>${{ package.delivery_fee }}</i></p>
             </div>
             <div class="d-flex">
                 <p class="input border-red font-weight-bold w-50 m-0 p-0 text-center">DEPT. DATE</p>
@@ -193,7 +203,7 @@
             </div>
         </div>
     </div>
-    <p class="font-weight-bold" style="padding-bottom: 40px;">ITEMS: <i>{{ package.items }}</i></p>
+    <p class="font-weight-bold" style="padding-bottom: 40px;">ITEMS: <span class="hand">{{ package.items }}</span></p>
 </body>
 <style>
     .text-center {
@@ -248,11 +258,13 @@
     .padding-top {
         padding-top: 4px;
     }
-    .input i, i {
+    .hand, .input i, i {
         font-size: 1.5em;
-        color: #16264c;
+        color: #000F55;
         padding-left: 12px;
         padding-top: 8px;
+        text-decoration: none;
+        font-family: kristi;
     }
     .input_heading {
         height: 25px;
