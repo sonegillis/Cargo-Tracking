@@ -114,7 +114,7 @@ def article(request):
 
 def search_package(request):
     # return HttpResponseRedirect(reverse('site_suspended'))
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('login'))
     if request.method == "GET":
         template_name = "search-package.html"
