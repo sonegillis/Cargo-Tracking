@@ -1351,7 +1351,7 @@ a > img.alignnone { margin: 5px 20px 20px 0; }
 
 
 /* Footer Specific */
-.footer .widget_nav_menu ul > li > a { font-family: "Roboto", Helvetica, Arial, sans-serif; font-weight: normal; text-transform: inherit; font-size: 14px; color: #123652; }
+.footer .widget_nav_menu ul > li > a { font-family: "Roboto", Helvetica, Arial, sans-serif; font-weight: normal; text-transform: inherit; font-size: 14px; color: #fff; }
 .footer img.logo { margin: 5px 0px 20px; }
 
 /* 05.21. Contact Form */

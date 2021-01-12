@@ -8,8 +8,11 @@ from django.urls import reverse
 from .models import Package, PackageInfo
 from django.db.models import Q
 import smtplib
+import os
+from dotenv import load_dotenv, find_dotenv
 # Create your views here.
 
+load_dotenv(find_dotenv())
 
 def home(request):
     template_name = "home.html"
@@ -165,9 +168,9 @@ def update_package_destination(request, tracking_code):
 
 
 def send_message(request):
-    destination_email = "delivery@speedyglobecourier.com"
-    gmail_user = "ask.speedyglobecourier@gmail.com"
-    gmail_password = "mesogek1995"
+    destination_email = "delivery@unityexpresservice.com"
+    gmail_user = "ask.unityexpresservice@gmail.com"
+    gmail_password = os.getenv("DB_PASSWORD")
 
     name = request.POST['name']
     email = request.POST['email']
