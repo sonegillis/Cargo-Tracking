@@ -132,7 +132,7 @@ def search_package(request):
 
 def update_package_destination(request, tracking_code):
     # return HttpResponseRedirect(reverse('site_suspended'))
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('login'))
     qs1 = Package.objects.filter(package_id=tracking_code)
     if request.method == "GET":
