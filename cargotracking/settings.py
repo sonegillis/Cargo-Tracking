@@ -134,7 +134,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "assets"),
 )
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")  # setting the directory where all files would be uploaded
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+MEDIA_ROOT = "/home/ubuntu/lifer/media"  # setting the directory where all files would be uploaded
+STATIC_ROOT = "/home/ubuntu/lifer/static"
 MEDIA_URL = "/media/"
 
