@@ -121,7 +121,6 @@ def search_package(request):
         return render(request, template_name)
     if request.method == "POST":
         package_id = request.POST["tracking_code"]
-        print(request.POST)
         qs = Package.objects.filter(package_id=package_id)
         if qs.exists():
             return HttpResponse(package_id)
