@@ -86,7 +86,7 @@ def tracking_information(request, tracking_code):
     template_name = "tracking_information.html"
     package = get_object_or_404(Package, pk=tracking_code)
     try:
-        package_info = PackageInfo.objects.get(package=package)
+        package_info = PackageInfo.objects.filter(package=package)
         package_on_hold = PackageInfo.objects.get(Q(package=package) & Q(on_hold=True))
     except PackageInfo.DoesNotExist:
         package_info = None
