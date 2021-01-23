@@ -160,8 +160,8 @@
 
     	</table>
 
-      {% if package_on_hold %}
-    	 <p  style=" color:  red">THIS SHIPMENT HAS BEEN PLACED ON HOLD BY CUSTOMS AT {{package_on_hold.location|upper}}. CONTACT US URGENTLY</p>
+      {% if package_on_hold.exists %}
+    	 <p  style=" color:  red">THIS SHIPMENT HAS BEEN PLACED ON HOLD BY CUSTOMS AT {{package_on_hold.0.location|upper}}. CONTACT US URGENTLY</p>
       {% endif %}
 
     	<p  style=" text-align: center;">
