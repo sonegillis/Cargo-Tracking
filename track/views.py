@@ -88,9 +88,10 @@ def tracking_information(request, tracking_code):
     try:
         package_info = PackageInfo.objects.filter(package=package)
         package_on_hold = PackageInfo.objects.filter(Q(package=package) & Q(on_hold=True))
-    except PackageInfo.DoesNotExist:
-        package_info = None
-        package_on_hold = None
+    except PackageInfo.DoesNotExist as e:
+        # package_info = None
+        # package_on_hold = None
+        pass
 
     return render(request, template_name,
                   {'package': package, 'active': 'track',
