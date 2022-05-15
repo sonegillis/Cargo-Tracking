@@ -2,3 +2,5 @@
 migrations/
 settings.py
 .env
+assets/
+static/
