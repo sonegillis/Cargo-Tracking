@@ -133,7 +133,6 @@ LOGIN_REDIRECT_URL = 'search-package'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "assets"),
-    os.path.join(BASE_DIR, "static"),
 )
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")  # setting the directory where all files would be uploaded
