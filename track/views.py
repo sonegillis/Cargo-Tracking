@@ -8,8 +8,11 @@ from django.urls import reverse
 from .models import Package, PackageInfo
 from django.db.models import Q
 import smtplib
+import os
+from dotenv import load_dotenv, find_dotenv
 # Create your views here.
 
+load_dotenv(find_dotenv())
 
 def home(request):
     template_name = "home.html"
@@ -87,11 +90,10 @@ def tracking_information(request, tracking_code):
     package = get_object_or_404(Package, pk=tracking_code)
     try:
         package_info = PackageInfo.objects.filter(package=package)
-        package_on_hold = PackageInfo.objects.filter(Q(package=package) & Q(on_hold=True))
-    except PackageInfo.DoesNotExist as e:
-        # package_info = None
-        # package_on_hold = None
-        pass
+        package_on_hold = PackageInfo.objects.get(Q(package=package) & Q(on_hold=True))
+    except PackageInfo.DoesNotExist:
+        package_info = None
+        package_on_hold = None
 
     return render(request, template_name,
                   {'package': package, 'active': 'track',
@@ -165,9 +167,9 @@ def update_package_destination(request, tracking_code):
 
 
 def send_message(request):
-    destination_email = "delivery@speedyglobecourier.com"
-    gmail_user = "ask.speedyglobecourier@gmail.com"
-    gmail_password = "mesogek1995"
+    destination_email = "delivery@unityexpresservice.com"
+    gmail_user = "ask.unityexpresservice@gmail.com"
+    gmail_password = os.getenv("DB_PASSWORD")
 
     name = request.POST['name']
     email = request.POST['email']

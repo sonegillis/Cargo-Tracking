@@ -131,6 +131,7 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = 'search-package'
 
 STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "assets"),
     os.path.join(BASE_DIR, "static"),
 )
 
