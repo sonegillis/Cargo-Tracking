@@ -1,201 +1,287 @@
-{% extends 'base.html' %}
-
-{% load static from staticfiles %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static from staticfiles %} {% block content %}
 <!-- MAIN TITLE -->
-		<div class="main-title" style="background-image: url('{% static 'img/1.jpeg' %}')">
-			<div class="container">
-				<h1 class="main-title__primary">Services</h1>
-				<h3 class="main-title__secondary">What we do and what can you expect from us</h3>
-			</div>
-		</div><!-- /.main-title -->
+<div
+  class="main-title"
+  style="background-image: url('{% static 'img/1.jpeg' %}')"
+>
+  <div class="container">
+    <h1 class="main-title__primary">Services</h1>
+    <h3 class="main-title__secondary">
+      What we do and what can you expect from us
+    </h3>
+  </div>
+</div>
+<!-- /.main-title -->
 
-		<!-- BREADCRUMBS -->
-		<div class="breadcrumbs">
-			<div class="container">
-				<span>
-					<a class="home" href="index-2.html" title="Go to CargoPress." rel="v:url">Speedy Globe Courier</a>
-				</span>
-				<span>
-					<span>Services</span>
-				</span>
-			</div>
-		</div><!-- /.breadcrumbs -->
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+  <div class="container">
+    <span>
+      <a class="home" href="index-2.html" title="Go to CargoPress." rel="v:url"
+        >Unity Express Service</a
+      >
+    </span>
+    <span>
+      <span>Services</span>
+    </span>
+  </div>
+</div>
+<!-- /.breadcrumbs -->
 
-		<div class="container">
+<div class="container">
+  <div class="row">
+    <main class="col-xs-12 col-md-9 col-md-push-3">
+      <div class="row margin-bottom-30">
+        <div class="col-sm-4">
+          <div class="page-box page-box--block">
+            <a
+              href="{% url 'services_ground_transport' %}"
+              class="page-box__picture"
+            >
+              <img
+                alt="Ground Transport"
+                class="wp-post-image"
+                sizes="(min-width: 781px) 360px, calc(100vw - 30px)"
+                srcset="{% static 'img/slider8.jpg' %} 360w, {% static 'img/slider8.jpg' %} 848w"
+                src="{% static 'img/slider8.jpg' %}"
+              />
+            </a>
+            <div class="page-box__content">
+              <h5 class="page-box__title text-uppercase">
+                <a href="{% url 'services_ground_transport' %}"
+                  >Ground Transport</a
+                >
+              </h5>
+              <p>
+                Ground transport and freight forwarding services, along with
+                other ancillary services, helps us to provide tailor made
+                logistic solutions to our clients, which we design as per their
+                requirements and business ecosystem to help cut their cost, …
+              </p>
+              <p>
+                <a
+                  class="read-more"
+                  href="{% url 'services_ground_transport' %}"
+                  >Read more</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- /.col -->
 
-			<div class="row">
+        <div class="col-sm-4">
+          <div class="page-box page-box--block">
+            <a
+              href="{% url 'services_logistic_service' %}"
+              class="page-box__picture"
+            >
+              <img
+                alt="Ground Transport"
+                class="wp-post-image"
+                sizes="(min-width: 781px) 360px, calc(100vw - 30px)"
+                srcset="{% static 'img/slider1.jpg' %} 360w, {% static 'img/slider1.jpg' %} 848w"
+                src="{% static 'img/slider1.jpg' %}"
+              />
+            </a>
+            <div class="page-box__content">
+              <h5 class="page-box__title text-uppercase">
+                <a href="{% url 'services_logistic_service' %}"
+                  >Logistic Service</a
+                >
+              </h5>
+              <p>
+                We provide logistic services in the nation, whether it is
+                freight transportation, supply chain solutions, warehousing and
+                distribution, customer resource area services, customs, security
+                and insurance, temperature controlled logistics, industry …
+              </p>
+              <p>
+                <a
+                  class="read-more"
+                  href="{% url 'services_logistic_service' %}"
+                  >Read more</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- /.col -->
 
-				<main class="col-xs-12 col-md-9 col-md-push-3">
+        <div class="col-sm-4">
+          <div class="page-box page-box--block">
+            <a href="{% url 'services_truck_service" class="page-box__picture">
+              <img
+                alt="Ground Transport"
+                class="wp-post-image"
+                sizes="(min-width: 781px) 360px, calc(100vw - 30px)"
+                srcset="{% static 'img/slider6.jpg' %} 360w, {% static 'img/slider6.jpg' %} 848w"
+                src="{% static 'img/slider6.jpg' %}"
+              />
+            </a>
+            <div class="page-box__content">
+              <h5 class="page-box__title text-uppercase">
+                <a href="{% url 'services_truck_service' %}"
+                  >Trucking Service</a
+                >
+              </h5>
+              <p>
+                Our trucking service is based on the principle of providing our
+                clients with the flexibility and reliability, to move legal load
+                across town, or across the country, whenever they want. Our
+                in-house team of experienced …
+              </p>
+              <p>
+                <a class="read-more" href="{% url 'services_truck_service' %}"
+                  >Read more</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
 
-					<div class="row margin-bottom-30">
+      <div class="row margin-bottom-30">
+        <div class="col-sm-4">
+          <div class="page-box page-box--block">
+            <a
+              href="{% url 'services_ware_housing' %}"
+              class="page-box__picture"
+            >
+              <img
+                alt="Ground Transport"
+                class="wp-post-image"
+                sizes="(min-width: 781px) 360px, calc(100vw - 30px)"
+                srcset="{% static 'img/slider3.jpg' %} 360w, {% static 'img/slider3.jpg' %} 848w"
+                src="{% static 'img/slider3.jpg' %}"
+              />
+            </a>
+            <div class="page-box__content">
+              <h5 class="page-box__title text-uppercase">
+                <a href="{% url 'services_ware_housing' %}">Warehousing</a>
+              </h5>
+              <p>
+                Our warehousing and distribution services are regularly audited
+                and analyzed to ensure that it meets the contemporary business
+                models, and any and all upgrades are made to ensure our services
+                continue to help our clients meet their logistic …
+              </p>
+              <p>
+                <a class="read-more" href="{% url 'services_ware_housing' %}"
+                  >Read more</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- /.col -->
 
-						<div class="col-sm-4">
+        <div class="col-sm-4">
+          <div class="page-box page-box--block">
+            <a
+              href="{% url 'services_ware_housing' %}"
+              class="page-box__picture"
+            >
+              <img
+                alt="Ground Transport"
+                class="wp-post-image"
+                sizes="(min-width: 781px) 360px, calc(100vw - 30px)"
+                srcset="{% static 'img/slider2.jpg' %} 360w, {% static 'img/slider2.jpg' %} 848w"
+                src="{% static 'img/slider2.jpg' %}"
+              />
+            </a>
+            <div class="page-box__content">
+              <h5 class="page-box__title text-uppercase">
+                <a href="{% url 'services_ware_housing' %}">Cargo</a>
+              </h5>
+              <p>
+                Team of cargo experts are always available to help you with any
+                queries you might have, or if you want to consult in length your
+                logistic requirements. We would study your requirements and
+                provide you with a quote that would not only suit your …
+              </p>
+              <p>
+                <a class="read-more" href="{% url 'services_cargo' %}"
+                  >Read more</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- /.col -->
 
-							<div class="page-box page-box--block">
-								<a href="{% url 'services_ground_transport' %}" class="page-box__picture">
-									<img alt="Ground Transport" class="wp-post-image" sizes="(min-width: 781px) 360px, calc(100vw - 30px)" srcset="{% static 'img/slider8.jpg' %} 360w, {% static 'img/slider8.jpg' %} 848w" src="{% static 'img/slider8.jpg' %}">
-								</a>
-								<div class="page-box__content">
-									<h5 class="page-box__title text-uppercase">
-										<a href="{% url 'services_ground_transport' %}">Ground Transport</a>
-									</h5>
-									<p>
-										Ground transport and freight forwarding services, along with other ancillary services, helps us to provide tailor made logistic solutions to our clients, which we design as per their requirements and business ecosystem to help cut their cost, …
-									</p>
-									<p>
-										<a class="read-more" href="{% url 'services_ground_transport' %}">Read more</a>
-									</p>
-								</div>
-							</div>
+        <div class="col-sm-4">
+          <div class="page-box page-box--block">
+            <a
+              href="{% url 'services_ware_housing' %}"
+              class="page-box__picture"
+            >
+              <img
+                alt="Ground Transport"
+                class="wp-post-image"
+                sizes="(min-width: 781px) 360px, calc(100vw - 30px)"
+                srcset="{% static 'img/s3 (1).jpg' %} 360w, {% static 'img/s3 (1).jpg' %} 848w"
+                src="{% static 'img/s3%20(1).jpg' %}"
+              />
+            </a>
+            <div class="page-box__content">
+              <h5 class="page-box__title text-uppercase">
+                <a href="{% url 'services_ware_housing' %}">Storage</a>
+              </h5>
+              <p>
+                We take pride in catering to a broad range of clientele
+                throughout the country with our warehousing services, which is
+                comprehensive, reliable and flexible – qualities that are
+                essential to help businesses in this market. Our experienced
+                experts …
+              </p>
+              <p>
+                <a class="read-more" href="{% url 'services_storage' %}"
+                  >Read more</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </main>
+    <!-- /.col -->
 
-						</div><!-- /.col -->
-
-						<div class="col-sm-4">
-
-							<div class="page-box page-box--block">
-								<a href="{% url 'services_logistic_service' %}" class="page-box__picture">
-									<img alt="Ground Transport" class="wp-post-image" sizes="(min-width: 781px) 360px, calc(100vw - 30px)" srcset="{% static 'img/slider1.jpg' %} 360w, {% static 'img/slider1.jpg' %} 848w" src="{% static 'img/slider1.jpg' %}">
-								</a>
-								<div class="page-box__content">
-									<h5 class="page-box__title text-uppercase">
-										<a href="{% url 'services_logistic_service' %}">Logistic Service</a>
-									</h5>
-									<p>
-										We provide logistic services in the nation, whether it is freight transportation, supply chain solutions, warehousing and distribution, customer resource area services, customs, security and insurance, temperature controlled logistics, industry …
-									</p>
-									<p>
-										<a class="read-more" href="{% url 'services_logistic_service' %}">Read more</a>
-									</p>
-								</div>
-							</div>
-
-						</div><!-- /.col -->
-
-						<div class="col-sm-4">
-
-							<div class="page-box page-box--block">
-								<a href="{% url 'services_truck_service" class="page-box__picture">
-									<img alt="Ground Transport" class="wp-post-image" sizes="(min-width: 781px) 360px, calc(100vw - 30px)" srcset="{% static 'img/slider6.jpg' %} 360w, {% static 'img/slider6.jpg' %} 848w" src="{% static 'img/slider6.jpg' %}">
-								</a>
-								<div class="page-box__content">
-									<h5 class="page-box__title text-uppercase">
-										<a href="{% url 'services_truck_service' %}">Trucking Service</a>
-									</h5>
-									<p>
-										Our trucking service is based on the principle of providing our clients with the flexibility and reliability, to move legal load across town, or across the country, whenever they want. Our in-house team of experienced …
-									</p>
-									<p>
-										<a class="read-more" href="{% url 'services_truck_service' %}">Read more</a>
-									</p>
-								</div>
-							</div>
-
-						</div><!-- /.col -->
-
-					</div><!-- /.row -->
-
-					<div class="row margin-bottom-30">
-
-						<div class="col-sm-4">
-
-							<div class="page-box page-box--block">
-								<a href="{% url 'services_ware_housing' %}" class="page-box__picture">
-									<img alt="Ground Transport" class="wp-post-image" sizes="(min-width: 781px) 360px, calc(100vw - 30px)" srcset="{% static 'img/slider3.jpg' %} 360w, {% static 'img/slider3.jpg' %} 848w" src="{% static 'img/slider3.jpg' %}">
-								</a>
-								<div class="page-box__content">
-									<h5 class="page-box__title text-uppercase">
-										<a href="{% url 'services_ware_housing' %}">Warehousing</a>
-									</h5>
-									<p>
-										Our warehousing and distribution services are regularly audited and analyzed to ensure that it meets the contemporary business models, and any and all upgrades are made to ensure our services continue to help our clients meet their logistic …
-									</p>
-									<p>
-										<a class="read-more" href="{% url 'services_ware_housing' %}">Read more</a>
-									</p>
-								</div>
-							</div>
-
-						</div><!-- /.col -->
-
-						<div class="col-sm-4">
-
-							<div class="page-box page-box--block">
-								<a href="{% url 'services_ware_housing' %}" class="page-box__picture">
-									<img alt="Ground Transport" class="wp-post-image" sizes="(min-width: 781px) 360px, calc(100vw - 30px)" srcset="{% static 'img/slider2.jpg' %} 360w, {% static 'img/slider2.jpg' %} 848w" src="{% static 'img/slider2.jpg' %}">
-								</a>
-								<div class="page-box__content">
-									<h5 class="page-box__title text-uppercase">
-										<a href="{% url 'services_ware_housing' %}">Cargo</a>
-									</h5>
-									<p>
-										Team of cargo experts are always available to help you with any queries you might have, or if you want to consult in length your logistic requirements. We would study your requirements and provide you with a quote that would not only suit your …
-									</p>
-									<p>
-										<a class="read-more" href="{% url 'services_cargo' %}">Read more</a>
-									</p>
-								</div>
-							</div>
-
-						</div><!-- /.col -->
-
-						<div class="col-sm-4">
-
-							<div class="page-box page-box--block">
-								<a href="{% url 'services_ware_housing' %}" class="page-box__picture">
-									<img alt="Ground Transport" class="wp-post-image" sizes="(min-width: 781px) 360px, calc(100vw - 30px)" srcset="{% static 'img/s3 (1).jpg' %} 360w, {% static 'img/s3 (1).jpg' %} 848w" src="{% static 'img/s3%20(1).jpg' %}">
-								</a>
-								<div class="page-box__content">
-									<h5 class="page-box__title text-uppercase">
-										<a href="{% url 'services_ware_housing' %}">Storage</a>
-									</h5>
-									<p>
-										We take pride in catering to a broad range of clientele throughout the country with our warehousing services, which is comprehensive, reliable and flexible – qualities that are essential to help businesses in this market. Our experienced experts …
-									</p>
-									<p>
-										<a class="read-more" href="{% url 'services_storage' %}">Read more</a>
-									</p>
-								</div>
-							</div>
-
-						</div><!-- /.col -->
-
-					</div><!-- /.row -->
-
-				</main><!-- /.col -->
-
-				<div class="col-xs-12 col-md-3 col-md-pull-9">
-
-					<div class="sidebar widget_nav_menu">
-						<ul class="menu" id="menu-services-menu">
-							<li class="current-menu-item">
-								<a href="{% url 'services' %}">All Services</a>
-							</li>
-							<li>
-								<a href="{% url 'services_ground_transport' %}">Ground Transport</a>
-							</li>
-							<li>
-								<a href="{% url 'services_cargo' %}">Cargo</a>
-							</li>
-							<li>
-								<a href="{% url 'services_ware_housing' %}">Warehousing</a>
-							</li>
-							<li>
-								<a href="{% url 'services_logistic_service' %}">Logistic Service</a>
-							</li>
-							<li>
-								<a href="{% url 'services_truck_service' %}">Trucking Service</a>
-							</li>
-							<li>
-								<a href="{% url 'services_storage' %}">Storage</a>
-							</li>
-						</ul>
-					</div><!-- /.sidebar -->
-
-				</div><!-- /.col -->
-
-			</div><!-- /.row -->
-
-		</div><!-- /.container -->
+    <div class="col-xs-12 col-md-3 col-md-pull-9">
+      <div class="sidebar widget_nav_menu">
+        <ul class="menu" id="menu-services-menu">
+          <li class="current-menu-item">
+            <a href="{% url 'services' %}">All Services</a>
+          </li>
+          <li>
+            <a href="{% url 'services_ground_transport' %}">Ground Transport</a>
+          </li>
+          <li>
+            <a href="{% url 'services_cargo' %}">Cargo</a>
+          </li>
+          <li>
+            <a href="{% url 'services_ware_housing' %}">Warehousing</a>
+          </li>
+          <li>
+            <a href="{% url 'services_logistic_service' %}">Logistic Service</a>
+          </li>
+          <li>
+            <a href="{% url 'services_truck_service' %}">Trucking Service</a>
+          </li>
+          <li>
+            <a href="{% url 'services_storage' %}">Storage</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.sidebar -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->
 {% endblock %}

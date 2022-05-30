@@ -1,130 +1,141 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static from staticfiles %} {% block css %}
+<style media="screen">
+  .twoToneButton.spinning {
+    background-color: @base;
+    padding-right: 40px;
+  }
+  .twoToneButton.spinning:after {
+    content: "";
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    width: 0;
+    height: 0;
+    box-shadow: 0px 0px 0 1px darken(@base, 10%);
+    position: absolute;
+    border-radius: 50%;
+    animation: rotate360 0.5s infinite linear, exist 0.1s forwards ease;
+  }
 
-{% load static from staticfiles %}
+  .twoToneButton.spinning:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    right: 6px;
+    top: 50%;
+    position: absolute;
+    border: 2px solid darken(@base, 40%);
+    border-right: 3px solid @accent;
+    animation: rotate360 0.5s infinite linear, exist 0.1s forwards ease;
+  }
 
-{% block css %}
-    <style media="screen">
-      .twoToneButton.spinning {
-        background-color: @base;
-        padding-right: 40px;
-      }
-    .twoToneButton.spinning:after {
-        content: '';
-        position: absolute;
-        right: 6px;
-        top: 50%;
-        width: 0;
-        height: 0;
-        box-shadow: 0px 0px 0 1px darken(@base,10%);
-        position: absolute;
-        border-radius: 50%;
-        animation: rotate360 .5s infinite linear, exist .1s forwards ease;
+  @keyframes rotate360 {
+    100% {
+      transform: rotate(360deg);
     }
-
-    .twoToneButton.spinning:before {
-      content: "";
-      width: 0px;
-      height: 0px;
-      border-radius: 50%;
-      right: 6px;
-      top: 50%;
-      position: absolute;
-      border: 2px solid darken(@base,40%);
-      border-right: 3px solid @accent;
-      animation: rotate360 .5s infinite linear, exist .1s forwards ease ;
+  }
+  @keyframes exist {
+    100% {
+      width: 15px;
+      height: 15px;
+      margin: -8px 5px 0 0;
     }
-
-    @keyframes rotate360 {
-      100% {
-          transform: rotate(360deg);
-      }
-    }
-    @keyframes exist {
-      100% {
-          width: 15px;
-          height: 15px;
-          margin: -8px 5px 0 0;
-      }
-    }
-    </style>
-{% endblock %}
-
-{% block content %}
+  }
+</style>
+{% endblock %} {% block content %}
 <!-- MAIN TITLE -->
-  <div class="main-title" style="background-image: url('{% static 'img/slider7.jpg' %}')">
-    <div class="container">
-      <h1 class="main-title__primary">Tracker</h1>
-      <h3 class="main-title__secondary">Know exactly where your cargo/freight is at all times</h3>
-    </div>
-  </div><!-- /.main-title -->
-
-  <!-- BREADCRUMBS -->
-  <div class="breadcrumbs">
-    <div class="container">
-      <span>
-        <a class="home" href="{% url 'home' %}" title="Go to CargoPress." rel="v:url">Speedy Globe Courier</a>
-      </span>
-      <span>
-        <span>Tracking</span>
-      </span>
-    </div>
-  </div><!-- /.breadcrumbs -->
-
+<div
+  class="main-title"
+  style="background-image: url('{% static 'img/slider7.jpg' %}')"
+>
   <div class="container">
+    <h1 class="main-title__primary">Tracker</h1>
+    <h3 class="main-title__secondary">
+      Know exactly where your cargo/freight is at all times
+    </h3>
+  </div>
+</div>
+<!-- /.main-title -->
 
-    <div class="row">
-
-      <div class="col-sm-8 col-sm-offset-2 margin-bottom-60">
-
-        <p>
-          Enter your tracking code below and click the "Track" button to find out exactly where your cargo is right now and when it will arrive at its final destination.
-        </p>
-
-        <form method="POST" action="" class="trackForm clearfix">
-          <input type="text" name="tracking_code" placeholder="SK********UK" id="name">
-          {% csrf_token %}
-          <button type="submit" class="btn btn-info twoToneButton">Track</button>
-        </form>
-
-      </div><!-- /.col -->
-
-    </div><!-- /.row -->
-
-  </div><!-- /.container -->
-
-  {% if invalid_tracking_code %}
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
   <div class="container">
-    <div class="row">
-      <div style="border: 1px red solid;" class="col-sm-8 col-sm-offset-2 margin-bottom-60">
-        <p>Invalid Tracking Code. Maybe caused by the following Reasons</p>
-        <ul>
-          <li>Tracking code does not follow format >>SK********UK<< </li>
-          <li>Package information has not been entered into the system yet</li>
-        </ul>
-      </div>
+    <span>
+      <a
+        class="home"
+        href="{% url 'home' %}"
+        title="Go to CargoPress."
+        rel="v:url"
+        >Unity Express Service</a
+      >
+    </span>
+    <span>
+      <span>Tracking</span>
+    </span>
+  </div>
+</div>
+<!-- /.breadcrumbs -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 margin-bottom-60">
+      <p>
+        Enter your tracking code below and click the "Track" button to find out
+        exactly where your cargo is right now and when it will arrive at its
+        final destination.
+      </p>
+
+      <form method="POST" action="" class="trackForm clearfix">
+        <input
+          type="text"
+          name="tracking_code"
+          placeholder="SK********UK"
+          id="name"
+        />
+        {% csrf_token %}
+        <button type="submit" class="btn btn-info twoToneButton">Track</button>
+      </form>
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->
+
+{% if invalid_tracking_code %}
+<div class="container">
+  <div class="row">
+    <div
+      style="border: 1px red solid"
+      class="col-sm-8 col-sm-offset-2 margin-bottom-60"
+    >
+      <p>Invalid Tracking Code. Maybe caused by the following Reasons</p>
+      <ul>
+        <li>Tracking code does not follow format >>SK********UK<<</li>
+        <li>Package information has not been entered into the system yet</li>
+      </ul>
     </div>
   </div>
-  {% endif %}
-{% endblock %}
-
-{% block javascript %}
+</div>
+{% endif %} {% endblock %} {% block javascript %}
 <script>
-  $(function(){
+  $(function () {
+    var twoToneButton = document.querySelector(".twoToneButton");
 
-    var twoToneButton = document.querySelector('.twoToneButton');
-
-    twoToneButton.addEventListener("click", function() {
+    twoToneButton.addEventListener(
+      "click",
+      function () {
         twoToneButton.innerHTML = "TRACKING";
-        twoToneButton.classList.add('spinning');
+        twoToneButton.classList.add("spinning");
 
-      setTimeout(
-            function  (){
-                twoToneButton.classList.remove('spinning');
-                twoToneButton.innerHTML = "TRACK";
-
-            }, 6000);
-    }, false);
-
-});
+        setTimeout(function () {
+          twoToneButton.classList.remove("spinning");
+          twoToneButton.innerHTML = "TRACK";
+        }, 6000);
+      },
+      false
+    );
+  });
 </script>
 {% endblock %}
